@@ -4,7 +4,6 @@ ENV PYTHONUNBUFFERED 1
 
 RUN mkdir /GreenEduLink
 WORKDIR /GreenEduLink
-
 ADD . /GreenEduLink/
 	
 RUN pip install -r requirements.txt
