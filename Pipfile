@@ -9,6 +9,9 @@ verify_ssl = true
 django = "*"
 gunicorn = "*"
 psycopg2 = "*"
+django-phonenumber-field = {extras = ["phonenumbers"],version = "*"}
+pillow = "*"
+django-ckeditor = "*"
 
 [requires]
 python_version = "3.8"
