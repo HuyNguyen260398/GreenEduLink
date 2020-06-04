@@ -12,6 +12,7 @@ psycopg2 = "*"
 django-phonenumber-field = {extras = ["phonenumbers"],version = "*"}
 pillow = "*"
 django-ckeditor = "*"
+beautifulsoup4 = "*"
 
 [requires]
 python_version = "3.8"

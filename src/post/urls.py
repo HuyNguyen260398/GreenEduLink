@@ -1,11 +1,10 @@
 from django.urls import path
 
-from .views import (
-    news,
-)
+from .views import *
 
 app_name = 'post'
 
 urlpatterns = [
-    path('news/', news, name='news')
+    path('', post, name='post'),
+    path('<int:id>/<slug:slug>/', post_detail, name='post_detail')
 ]

@@ -1,198 +1,54 @@
 {% load static %}
 
 <!doctype html>
-<html lang="en">
+<html class="no-js" lang="en">
 
 <head>
-
-    <title>Green Edu Link</title>
-    <link rel="shortcut icon" type="image/png" href="{% static 'images/Home/logo-chat-footer.png' %}" />
-
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Home || Green Edu Link</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/6c3b6f5228.js" crossorigin="anonymous"></script>
-
-    <!-- Ckeditor -->
-    <script src="https://cdn.ckeditor.com/ckeditor5/19.0.0/classic/ckeditor.js"></script>
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <!-- css section
+		============================================ -->
+    {% include 'css.html' %}
 
 </head>
 
 <body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
 
-    <!-- Top Nav -->
-    <div class="container-fluid" id="top-nav">
-        <div class="row">
-            <div class="col-lg-4" style="height: 126px;">
-                <div class="row">
-                    <img src="{% static 'images/Home/Logo.png' %}" alt="Green Edu Link Logo" id="nav-logo">
-                </div>
-            </div>
-            <div class="col-lg-8">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12" id="contact-menu">
-                            <ul class="nav justify-content-end">
-                                <li class="nav-item">
-                                    <p class="nav-link" href="#"><img src="{% static 'images/Home/icon-phone.png' %}"
-                                            alt="phone">&nbsp;&nbsp;0982 205 216</p>
-                                </li>
-                                <li class="nav-item">
+    <!--Main Wrapper Start-->
+    <div class="as-mainwrapper">
 
-                                    <p class="nav-link" href="#"><img src="{% static 'images/Home/icon-email.png' %}"
-                                            alt="email">&nbsp;&nbsp;info.greenedulink@gmail.com</p>
-                                </li>
-                                <li class="nav-item">
-                                    <p class="nav-link" href="#"><img src="{% static 'images/Home/icon-skype.png' %}"
-                                            alt="skype">&nbsp;&nbsp;Greenedulink</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12" id="main-menu">
-                            <ul class="nav justify-content-end">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">GIỚI THIỆU</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">DU HỌC CÁC NƯỚC</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">HỌC BỔNG</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">DU LỊCH</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">TIN TỨC</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">LIÊN HỆ</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!--Bg White Start-->
+        <div class="bg-white">
+
+            <!--Header Area Start-->
+            {% include 'header.html' %}
+            <!--End of Header Area-->
+
+            <!--Body Area Start-->
+            {% block content %}{% endblock %}
+            <!--End of Body Area-->
+
+            <!--Footer Area Start-->
+            {% include 'footer.html' %}
+            <!--End of Footer Area-->
+
         </div>
+        <!--End of Bg White-->
+
     </div>
+    <!--End of Main Wrapper Area-->
 
-    {% block content %}
-    {% endblock content %}
 
-    <!-- Subscribe -->
-    <div class="container-fluid" id="subscribe">
-        <div class="row" id="hot-news-title">
-            <div class="col-12">
-                <h1 class="d-flex justify-content-center">Đăng Ký Với GreenEduLink</h1>
-                <h3 class="d-flex justify-content-center">Để nhận thông tin mới nhất!</h3>
-            </div>
-        </div>
-        <div class="row" id="subscribe-container">
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Email của bạn" aria-label="Recipient's username"
-                    aria-describedby="button-addon2">
-                <div class="input-group-append">
-                    <button class="btn" type="button" id="button-addon2"><i class="fas fa-paper-plane"></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <div class="conatainer" id="contact-info">
-        <div class="d-flex justify-content-around" id="info-container">
-            <div>
-                <img src="{% static 'images/Home/logo-footer.png' %}" alt="logo">
-            </div>
-            <div style="width: 400px;">
-                <table>
-                    <tr>
-                        <td><img src="{% static 'images/Home/icon-location-footer.png' %}" alt=""></td>
-                        <td>
-                            <p>M Floor, 117-119 Ly Chinh Thang Street, Ward 7, District 3, Ho Chi Minh City</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><img src="{% static 'images/Home/icon-email-footer.png' %}" alt=""></td>
-                        <td>
-                            <p>info.greenedulink@gmail.com</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><img src="{% static 'images/Home/icon-phone-footer.png' %}" alt=""></td>
-                        <td>
-                            <p>(+84) 982 205 216<br>(+84) 937 691 089</p>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <div>
-                <ul>
-                    <li>
-                        <a href="#">Giới Thiệu</a><br>
-                    </li>
-                    <li>
-                        <a href="#">Du Học Các Nước</a>
-                    </li>
-                    <li>
-                        <a href="#">Học Bổng</a>
-                    </li>
-                    <li>
-                        <a href="#">Du Lịch</a>
-                    </li>
-                    <li>
-                        <a href="#">Tin Tức</a>
-                    </li>
-                    <li>
-                        <a href="#">Liên Hệ</a>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <h5 style="text-align: center;"><strong>Follow Us</strong></h5>
-                <p>
-                    <a href="#"><img src="{% static 'images/Home/icon-facebook-footer.png' %}" alt="fb-logo"></a>
-                    &nbsp;
-                    <a href="#"><img src="{% static 'images/Home/icon-google-footer.png' %}" alt="gg-logo"></a>
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-    </script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-    </script>
-
-    <!-- CKEditor -->
-    <script>
-        ClassicEditor
-            .create( document.querySelector( '#editor' ) )
-            .catch( error => {
-                console.error( error );
-            } );
-    </script>
-
-    <!-- Custom JS -->
-    <script src="{% static 'js/main.js' %}"></script>
+    <!-- js section
+		============================================ -->
+    {% include 'js.html' %}
 
 </body>
 

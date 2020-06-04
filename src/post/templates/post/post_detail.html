@@ -1,0 +1,169 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!--Breadcrumb Banner Area Start-->
+<div class="breadcrumb-banner-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb-text">
+                    <h1 class="text-center">POST DETAILS</h1>
+                    <div class="breadcrumb-bar">
+                        <ul class="breadcrumb text-center">
+                            <li><a href="index.html">Home</a></li>
+                            <li>POST DETAILS</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of Breadcrumb Banner Area-->
+<!--News Details Area Start-->
+<div class="news-details-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-8">
+                <div class="news-details-content">
+                    <div class="single-latest-item">
+                        <img src="{{ post.thumbnail.url }}" alt="" style="width:870px; heigth:439px">
+                        <div class="single-latest-text">
+                            <h3>{{ post.title }}</h3>
+                            <div class="single-item-comment-view">
+                                <span><i class="zmdi zmdi-calendar-check"></i>{{ post.created_at }}</span>
+                                <span><i class="zmdi zmdi-eye"></i>{{ post.views }}</span>
+                                <span><i class="zmdi zmdi-comments"></i>{{ post.comments }}</span>
+                            </div>
+                            <div>{{ post.content | safe }}</div>
+                            <div class="tags-and-links">
+                                <div class="related-tag">
+                                    <span>Tag:</span>
+                                    <ul class="tags">
+                                    {% for tag in post_tag %}
+                                        <li><a href="#">{{ tag | capfirst }},</a></li>
+                                    {% endfor %}
+                                    </ul>
+                                </div>
+                                <div class="social-links">
+                                    <span>Share:</span>
+                                    <a href="#"><i class="zmdi zmdi-facebook"></i></a>
+                                    <a href="#"><i class="zmdi zmdi-twitter"></i></a>
+                                    <a href="#"><i class="zmdi zmdi-google-old"></i></a>
+                                    <a href="#"><i class="zmdi zmdi-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comments">
+                        <h4 class="title">Comments</h4>
+                        <div class="single-comment">
+                            <div class="author-image">
+                                <img src="img/comment/1.jpg" alt="">
+                            </div>
+                            <div class="comment-text">
+                                <div class="author-info">
+                                    <h4><a href="#">MD Tokdir Ali</a></h4>
+                                    <span class="reply"><a href="#">Reply</a></span>
+                                    <span class="comment-time">Posted on Jun 12, 2015 /</span>
+                                </div>
+                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have
+                                    suffered aation in some form, by injected humour,</p>
+                            </div>
+                        </div>
+                        <div class="single-comment comment-reply">
+                            <div class="author-image">
+                                <img src="img/comment/2.jpg" alt="">
+                            </div>
+                            <div class="comment-text">
+                                <div class="author-info">
+                                    <h4><a href="#">MD Kopal Ali</a></h4>
+                                    <span class="reply"><a href="#">Reply</a></span>
+                                    <span class="comment-time">Posted on Jun 12, 2015 /</span>
+                                </div>
+                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have
+                                    suffered aation in some form, by injected humour,</p>
+                            </div>
+                        </div>
+                        <div class="single-comment">
+                            <div class="author-image">
+                                <img src="img/comment/3.jpg" alt="">
+                            </div>
+                            <div class="comment-text">
+                                <div class="author-info">
+                                    <h4><a href="#">MR Soytan Ali</a></h4>
+                                    <span class="reply"><a href="#">Reply</a></span>
+                                    <span class="comment-time">Posted on Jun 12, 2015 /</span>
+                                </div>
+                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have
+                                    suffered aation in some form, by injected humour,</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4">
+                <div class="sidebar-widget">
+                    <div class="single-sidebar-widget">
+                        <h4 class="title">Recent Posts</h4>
+                        <div class="recent-content">
+                            {% for post_item in post_list %}
+                                <div class="recent-content-item">
+                                    <a href="{{ post_item.get_absolute_url }}"><img src="{{ post_item.thumbnail.url }}" alt="" style="width:150px; height:100px"></a>
+                                    <div class="recent-text">
+                                        <h4><a href="{{ post_item.get_absolute_url }}">{{ post_item.title }}</a></h4>
+                                        <div class="single-item-comment-view">
+                                            <span><i class="zmdi zmdi-eye"></i>{{ post_item.views }}</span>
+                                            <span><i class="zmdi zmdi-comments"></i>{{ post_item.comments}}</span>
+                                        </div>
+                                        <p>{{ post_item.description }}</p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="single-sidebar-widget comment">
+                        <h4 class="title">Recent Comment</h4>
+                        <div class="recent-content">
+                            <div class="recent-content-item">
+                                <a href="#"><img src="img/comment/3.jpg" alt=""></a>
+                                <div class="recent-text">
+                                    <h4><a href="#">MR Soytan Ali</a></h4>
+                                    <p>There are many varia passages of Lorem Ipsuable,amar sonar</p>
+                                </div>
+                            </div>
+                            <div class="recent-content-item">
+                                <a href="#"><img src="img/comment/1.jpg" alt=""></a>
+                                <div class="recent-text">
+                                    <h4><a href="#">MD Tokdir Ali</a></h4>
+                                    <p>There are many varia passages of Lorem Ipsuable,amar sonar</p>
+                                </div>
+                            </div>
+                            <div class="recent-content-item">
+                                <a href="#"><img src="img/comment/3.jpg" alt=""></a>
+                                <div class="recent-text">
+                                    <h4><a href="#">MR Soytan Ali</a></h4>
+                                    <p>There are many varia passages of Lorem Ipsuable,amar sonar</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-sidebar-widget">
+                        <h4 class="title">Search by Tags</h4>
+                        <ul class="tags">
+                        {% for tag in tag_list %}
+                            <li><a href="#">{{ tag | capfirst}}</a></li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of News Details Area-->
+
+{% endblock content %}
