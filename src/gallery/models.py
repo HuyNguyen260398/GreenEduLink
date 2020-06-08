@@ -33,7 +33,8 @@ def post_post_save_receiver(sender, instance, created, *arg, **kwargs):
         images = soup.findAll('img')
         for image in images:
             if 'http' not in image['src']:
-                picture = Picture(post_id=instance, image=image['src'])
+                picture = Picture(post_id=instance,
+                                  image=image['src'].replace('/media/', ''))
                 picture.save()
 
 

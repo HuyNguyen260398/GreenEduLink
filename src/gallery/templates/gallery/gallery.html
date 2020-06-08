@@ -1,0 +1,52 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<!--Breadcrumb Banner Area Start-->
+<div class="breadcrumb-banner-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb-text">
+                    <h1 class="text-center">Image Gallery</h1>
+                    <div class="breadcrumb-bar">
+                        <ul class="breadcrumb text-center">
+                            <li><a href="index.html">Home</a></li>
+                            <li>Gallery</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of Breadcrumb Banner Area-->
+<!--Gallery Area Start-->
+<div class="gallery-area pt-110 pb-130">
+    <div class="container">
+        <div class="row">
+
+            {% for picture in pictures %}
+
+            <div class="col-md-4 mb-30 col-sm-6">
+                <div class="gallery-img">
+                    <a href="{{ picture.image.url }}" data-toggle="lightbox" data-gallery="example-gallery">
+                        <img src="{{ picture.image.url }}" class="img-fluid" alt="" width="300" height="211">
+                    </a>
+                    {% comment %} <img src="{{ picture.image.url }}" alt="" width="300" height="211"> {% endcomment %}
+                    {% comment %} <div class="hover-effect"> {% endcomment %}
+                        {% comment %} <h2>Educational Courses</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit maecenas luctus nunc</p>
+                        {% endcomment %}
+                    {% comment %} </div> {% endcomment %}
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+<!--End of Gallery Area-->
+
+{% endblock content %}
