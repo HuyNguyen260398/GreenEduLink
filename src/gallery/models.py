@@ -49,3 +49,20 @@ def title_post_save_receiver(sender, instance, created, *args, **kwargs):
     if created:
         instance.title = 'img_' + str(instance.pk)
         instance.save()
+
+
+class Video(models.Model):
+    title = models.CharField(max_length=255)
+    url = models.URLField(max_length=255)
+    embed_url = models.URLField(max_length=255)
+    slug = models.SlugField(unique=True, blank=True, null=True)
+    timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+
+@receiver(pre_save, sender=Video)
+def slug_pre_save_receiver(sender, instance, *args, **kwargs):
+    if not instance.slug:
+        instance.slug = unique_slug_generator(instance)

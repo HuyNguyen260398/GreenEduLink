@@ -2,6 +2,8 @@
 
 {% load static %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
 
 <!--Breadcrumb Banner Area Start-->
@@ -60,48 +62,29 @@
                     </div>
                     <div class="comments">
                         <h4 class="title">Comments</h4>
-                        <div class="single-comment">
-                            <div class="author-image">
-                                <img src="img/comment/1.jpg" alt="">
-                            </div>
-                            <div class="comment-text">
-                                <div class="author-info">
-                                    <h4><a href="#">MD Tokdir Ali</a></h4>
-                                    <span class="reply"><a href="#">Reply</a></span>
-                                    <span class="comment-time">Posted on Jun 12, 2015 /</span>
+                        {% for comment in comments %}
+                            <div class="single-comment">
+                                <div class="author-image">
+                                    <img src=" {% static 'img/comment/1.jpg' %}" alt="">
                                 </div>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-                                    suffered aation in some form, by injected humour,</p>
-                            </div>
-                        </div>
-                        <div class="single-comment comment-reply">
-                            <div class="author-image">
-                                <img src="img/comment/2.jpg" alt="">
-                            </div>
-                            <div class="comment-text">
-                                <div class="author-info">
-                                    <h4><a href="#">MD Kopal Ali</a></h4>
-                                    <span class="reply"><a href="#">Reply</a></span>
-                                    <span class="comment-time">Posted on Jun 12, 2015 /</span>
+                                <div class="comment-text">
+                                    <div class="author-info">
+                                        <h4><a href="#">{{ comment.name }}</a></h4>
+                                        <span class="reply"><a href="#">Reply</a></span>
+                                        <span class="comment-time">Posted on {{ comment.created_on}} /</span>
+                                    </div>
+                                    <p>{{ comment.body | linebreaks }}</p>
                                 </div>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-                                    suffered aation in some form, by injected humour,</p>
                             </div>
-                        </div>
-                        <div class="single-comment">
-                            <div class="author-image">
-                                <img src="img/comment/3.jpg" alt="">
-                            </div>
-                            <div class="comment-text">
-                                <div class="author-info">
-                                    <h4><a href="#">MR Soytan Ali</a></h4>
-                                    <span class="reply"><a href="#">Reply</a></span>
-                                    <span class="comment-time">Posted on Jun 12, 2015 /</span>
-                                </div>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-                                    suffered aation in some form, by injected humour,</p>
-                            </div>
-                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="card-body">
+                        <h3>Leave a comment</h3>
+                        <form method="post" style="margin-top: 1.3em;">
+                            {{ comment_form | crispy }}
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
+                        </form>
                     </div>
                 </div>
             </div>

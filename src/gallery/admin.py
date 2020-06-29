@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
-from .models import Picture
+from .models import *
 
 # Register your models here.
 
@@ -18,4 +18,11 @@ class PictureAdmin(admin.ModelAdmin):
         ))
 
 
-# admin.site.register(Picture)
+@admin.register(Video)
+class VideoAdmin(admin.ModelAdmin):
+    readonly_fields = ['video_load']
+
+    def video_load(self, obj):
+        return mark_safe('<iframe width="512" height="256" src="{url}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'.format(
+            url=obj.embed_url,
+        ))

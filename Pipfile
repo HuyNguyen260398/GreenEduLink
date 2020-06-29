@@ -13,6 +13,9 @@ django-phonenumber-field = {extras = ["phonenumbers"],version = "*"}
 pillow = "*"
 django-ckeditor = "*"
 beautifulsoup4 = "*"
+requests = "*"
+mailchimp = "*"
+django-crispy-forms = "*"
 
 [requires]
 python_version = "3.8"

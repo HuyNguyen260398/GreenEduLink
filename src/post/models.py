@@ -62,3 +62,18 @@ class PostTag(models.Model):
 
     def __str__(self):
         return self.tag_id.name
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    body = models.TextField()
+    created_on = models.DateTimeField(auto_now=False, auto_now_add=True)
+    active = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ['created_on']
+
+    def __str__(self):
+        return 'Comment by {}'.format(self.name)

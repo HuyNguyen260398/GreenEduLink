@@ -23,12 +23,15 @@ from .views import (
     home
 )
 
+from marketing.views import subscribe
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
-    path('', home, name="home"),
+    path('', home, name='home'),
     path('post/', include('post.urls')),
     path('gallery/', include('gallery.urls')),
+    path('subscribe/', subscribe, name='subscribe'),
 ]
 
 if settings.DEBUG:

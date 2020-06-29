@@ -11,8 +11,8 @@
                     <h1 class="text-center">Image Gallery</h1>
                     <div class="breadcrumb-bar">
                         <ul class="breadcrumb text-center">
-                            <li><a href="index.html">Home</a></li>
-                            <li>Gallery</li>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Gallery</a></li>
                         </ul>
                     </div>
                 </div>
@@ -25,25 +25,28 @@
 <div class="gallery-area pt-110 pb-130">
     <div class="container">
         <div class="row">
-
-            {% for picture in pictures %}
-
-            <div class="col-md-4 mb-30 col-sm-6">
+            <div class="col-md-6 mb-30 col-sm-6">
                 <div class="gallery-img">
-                    <a href="{{ picture.image.url }}" data-toggle="lightbox" data-gallery="example-gallery">
-                        <img src="{{ picture.image.url }}" class="img-fluid" alt="" width="300" height="211">
+                    <a href="{% url 'gallery:picture_gallery' %}">
+                        <img src="{{ picture_gallery.image.url }}" alt="">
+                        <div class="hover-effect">
+                            <h2>Picture Gallery</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit maecenas luctus nunc</p>
+                        </div>
                     </a>
-                    {% comment %} <img src="{{ picture.image.url }}" alt="" width="300" height="211"> {% endcomment %}
-                    {% comment %} <div class="hover-effect"> {% endcomment %}
-                        {% comment %} <h2>Educational Courses</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit maecenas luctus nunc</p>
-                        {% endcomment %}
-                    {% comment %} </div> {% endcomment %}
                 </div>
             </div>
-
-            {% endfor %}
-
+            <div class="col-md-6 mb-30 col-sm-6">
+                <div class="gallery-img">
+                    <a href="{% url 'gallery:video_gallery' %}">
+                        <img src="{{ video_gallery.image.url }}" alt="">
+                        <div class="hover-effect">
+                            <h2>Video Gallery</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit maecenas luctus nunc</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

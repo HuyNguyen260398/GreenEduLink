@@ -616,4 +616,103 @@
 </div>
 <!--End of Event Area-->
 
+<!--Newsletter Area Start-->
+<div class="newsletter-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 col-sm-5">
+                <div class="newsletter-content">
+                    <h3>SUBSCRIBE</h3>
+                    <h2>TO OUR NEWSLETTER</h2>
+                </div>
+            </div>
+            <div class="col-md-7 col-sm-7">
+                <div class="newsletter-form angle">
+                    <form method="POST" id="mc-form" class="mc-form footer-newsletter fix" id="subscribe">
+                        {% csrf_token %}
+                        <div class="subscribe-form form-group">
+                            {% comment %} {{ form }} {% endcomment %}
+                            <input id="mc-email" type="email" name="email_id" id="email_id"
+                                placeholder="Enter your email address...">
+                            <button id="mc-submit" type="submit">SUBSCRIBE</button>
+                        </div>
+                    </form>
+                    <!-- mailchimp-alerts Start -->
+                    <div class="mailchimp-alerts text-centre fix pull-right">
+                        <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
+                        <div class="mailchimp-success"></div><!-- mailchimp-success end -->
+                        <div class="mailchimp-error"></div><!-- mailchimp-error end -->
+                    </div>
+                    <!-- mailchimp-alerts end -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of Newsletter Area-->
+
+<script>
+    $('#subscribe').submit(function (e) {
+        e.preventDefault();
+        var email_id = $("#email_id").val();
+        if (email_id) {
+            var csrfmiddlewaretoken = csrftoken;
+            var email_data = {
+                "email_id": email_id,
+                "csrfmiddlewaretoken": csrfmiddlewaretoken
+            };
+            $.ajax({
+                type: 'POST',
+                url: '/subscribe/',
+                data: email_data,
+                success: function (response) {
+                    $('#email_id').val('');
+                    if (response.status == "404") {
+                        alert("This Email is already been subscribed!");
+                    } else {
+                        alert(
+                            "Thank you for Subscribing! Please Check your Email to Confirm the Subscription");
+                    }
+                },
+                error: function (response) {
+                    alert("Sorry Something went Wrong");
+                    $('#email_id').val('');
+                }
+            });
+            return false;
+        } else {
+            alert("Please provide correct email!");
+        }
+    });
+
+
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+
+    function csrfSafeMethod(method) {
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+    $.ajaxSetup({
+        beforeSend: function (xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        }
+    })
+</script>
+
+
 {% endblock content %}

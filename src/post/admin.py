@@ -5,6 +5,7 @@ from .models import (
     Post,
     Tag,
     PostTag,
+    Comment,
 )
 
 
@@ -43,8 +44,20 @@ class PostAdmin(admin.ModelAdmin):
         model = Post
 
 
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('name', 'body', 'post', 'created_on', 'active')
+    list_filter = ('active', 'create_on')
+    search_fields = ('name', 'email', 'body')
+    actions = ['approve_comments']
+
+    def approve_comment(self, request, queryset):
+        queryset.update(active=True)
+
+
 admin.site.register(Post, PostAdmin)
 
 admin.site.register(Tag)
 
 admin.site.register(PostTag)
+
+admin.site.register(Comment)
