@@ -1,11 +1,11 @@
 from django.shortcuts import render
 
-from marketing.forms import SubscriptionForm
+# from marketing.forms import SubscriptionForm
 
 
 def home(request):
-    form = SubscriptionForm()
+    # form = SubscriptionForm()
     context = {
-        'form': form
+        # 'form': form
     }
     return render(request, "home.html", context)

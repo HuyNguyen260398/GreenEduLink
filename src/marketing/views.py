@@ -2,8 +2,8 @@ from django.conf import settings
 from django.contrib import messages
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
-from .forms import SubscriptionForm
-from .models import Subscription
+# from .forms import SubscriptionForm
+from .models import Subscribe
 from GEL.utils import SendSubscribeMail
 
 import json
@@ -35,13 +35,15 @@ members_endpoint = '{api_url}/lists/{list_id}/members'.format(
 def subscribe(request):
     if request.method == 'POST':
         email = request.POST['email_id']
-        email_qs = Subscription.objects.filter(email=email)
+        email_qs = Subscribe.objects.filter(email_id=email)
         if email_qs.exists():
-            data = {'status': '404'}
+            data = {"status": "404"}
             return JsonResponse(data)
         else:
-            Subscription.objects.create(email=email)
+            Subscribe.objects.create(email_id=email)
+            # Send the Mail, Class available in utils.py
             SendSubscribeMail(email)
+
     return HttpResponse("/")
 
 
