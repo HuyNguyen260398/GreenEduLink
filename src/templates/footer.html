@@ -1,6 +1,64 @@
 {% load static %}
 
+<!--Newsletter Area Start-->
+<div class="newsletter-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 col-sm-5">
+                <div class="newsletter-content">
+                    <h3>SUBSCRIBE</h3>
+                    <h2>TO OUR NEWSLETTER</h2>
+                </div>
+            </div>
+            <div class="col-md-7 col-sm-7">
+                <div class="newsletter-form angle" id="mc_embed_signup">
+                    {% comment %} <form method="POST" id="mc-form" class="mc-form footer-newsletter fix" id="subscribe">
+                        {% csrf_token %}
+                        <div class="subscribe-form form-group">
+                            <input id="email_id" type="email" name="email_id" placeholder="Enter your email address...">
+                            <button id="email_submit" type="submit">SUBSCRIBE</button>
+                        </div>
+                    </form> {% endcomment %}
 
+                    <form action="https://gmail.us3.list-manage.com/subscribe/post?u=15777aa60fa1b0270a930e5ab&amp;id=f63ed0b189"
+                        method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate mc-form footer-newsletter fix" target="_blank"
+                        novalidate>
+                        <div class="subscribe-form form-group" id="mc_embed_signup_scroll">
+                            <input id="mce-EMAIL" class="required email" value="" type="email" name="EMAIL" placeholder="Enter your email address..."
+                            style="border:none">
+                            <button type="submit" value="SUBSCRIBE" name="subscribe" id="mc-submit mc-embedded-subscribe" class="mc-btn">SUBSCRIBE</button>
+                            <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                                <input type="text" name="b_15777aa60fa1b0270a930e5ab_f63ed0b189" tabindex="-1" value="">
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- mailchimp-alerts Start -->
+                    <div class="mailchimp-alerts text-centre fix pull-right clear" id="mce-responses">
+                        <div class="mailchimp-submitting response"></div><!-- mailchimp-submitting end -->
+                        <div class="mailchimp-success response" id="mce-success-response" style="display:none"></div><!-- mailchimp-success end -->
+                        <div class="mailchimp-error response" id="mce-error-response" style="display:none"></div><!-- mailchimp-error end -->
+                    </div>
+                    <!-- mailchimp-alerts end -->
+
+                    {% comment %} <form action=""
+                        method="post" id="subscribe" name="mc-embedded-subscribe-form" class="validate mc-form footer-newsletter fix" novalidate>
+                        {% csrf_token %}
+                        <div class="subscribe-form form-group">
+                            <input id="mce-EMAIL" type="email" name="EMAIL" placeholder="Enter your email address...">
+                            <button type="submit" value="SUBSCRIBE" name="subscribe" id="subscribe-btn">SUBSCRIBE</button>
+                            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+                                    name="b_15777aa60fa1b0270a930e5ab_f63ed0b189" tabindex="-1" value=""></div>
+                        </div>
+                    </form> {% endcomment %}
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of Newsletter Area-->
 
 <!--Footer Widget Area Start-->
 <div class="footer-widget-area">

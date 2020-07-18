@@ -23,7 +23,7 @@ from .views import (
     home
 )
 
-from marketing.views import subscribe
+from marketing.views import subscribe_email
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,7 +31,7 @@ urlpatterns = [
     path('', home, name='home'),
     path('post/', include('post.urls')),
     path('gallery/', include('gallery.urls')),
-    path('subscribe/', subscribe, name='subscribe'),
+    path('subscribe/', include('marketing.urls')),
 ]
 
 if settings.DEBUG:

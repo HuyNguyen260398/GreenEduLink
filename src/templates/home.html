@@ -617,7 +617,7 @@
 <!--End of Event Area-->
 
 <!--Newsletter Area Start-->
-<div class="newsletter-area">
+{% comment %} <div class="newsletter-area">
     <div class="container">
         <div class="row">
             <div class="col-md-5 col-sm-5">
@@ -628,13 +628,13 @@
             </div>
             <div class="col-md-7 col-sm-7">
                 <div class="newsletter-form angle">
-                    {% comment %} <form method="POST" id="mc-form" class="mc-form footer-newsletter fix" id="subscribe">
+                    <form method="POST" id="mc-form" class="mc-form footer-newsletter fix" id="subscribe">
                         {% csrf_token %}
                         <div class="subscribe-form form-group">
                             <input id="email_id" type="email" name="email_id" placeholder="Enter your email address...">
                             <button id="email_submit" type="submit">SUBSCRIBE</button>
                         </div>
-                    </form> {% endcomment %}
+                    </form>
                     <form action="https://gmail.us3.list-manage.com/subscribe/post?u=15777aa60fa1b0270a930e5ab&amp;id=f63ed0b189"
                         method="post" id="subscribe" name="mc-embedded-subscribe-form" class="validate mc-form footer-newsletter fix" target="_blank"
                         novalidate>
@@ -656,26 +656,11 @@
             </div>
         </div>
     </div>
-</div>
+</div> {% endcomment %}
 <!--End of Newsletter Area-->
 
-<!-- Begin Mailchimp Signup Form -->
-<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
-<style type="text/css">
-    #mc_embed_signup {
-        background: #fff;
-        clear: left;
-        font: 14px Helvetica, Arial, sans-serif;
-    }
-
-    /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
-	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-</style>
-<div id="mc_embed_signup">
-    
-</div>
-<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
-<script type='text/javascript'>
+{% comment %} <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script> {% endcomment %}
+{% comment %} <script type='text/javascript'>
     (function ($) {
         window.fnames = new Array();
         window.ftypes = new Array();
@@ -693,72 +678,6 @@
         ftypes[5] = 'birthday';
     }(jQuery));
     var $mcj = jQuery.noConflict(true);
-</script>
-<!--End mc_embed_signup-->
-
-<script>
-    $('#subscribe').submit(function (e) {
-        e.preventDefault();
-        var email_id = $("#email_id").val();
-        if (email_id) {
-            var csrfmiddlewaretoken = csrftoken;
-            var email_data = {
-                "email_id": email_id,
-                "csrfmiddlewaretoken": csrfmiddlewaretoken
-            };
-            $.ajax({
-                type: 'POST',
-                url: '/subscribe/',
-                data: email_data,
-                success: function (response) {
-                    $('#email_id').val('');
-                    if (response.status == "404") {
-                        alert("This Email is already been subscribed!");
-                    } else {
-                        alert(
-                            "Thank you for Subscribing! Please Check your Email to Confirm the Subscription"
-                            );
-                    }
-                },
-                error: function (response) {
-                    alert("Sorry Something went Wrong");
-                    $('#email_id').val('');
-                }
-            });
-            return false;
-        } else {
-            alert("Please provide correct email!");
-        }
-    });
-
-
-    function getCookie(name) {
-        var cookieValue = null;
-        if (document.cookie && document.cookie !== '') {
-            var cookies = document.cookie.split(';');
-            for (var i = 0; i < cookies.length; i++) {
-                var cookie = jQuery.trim(cookies[i]);
-                if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                    break;
-                }
-            }
-        }
-        return cookieValue;
-    }
-    var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
-
-    function csrfSafeMethod(method) {
-        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-    }
-    $.ajaxSetup({
-        beforeSend: function (xhr, settings) {
-            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-                xhr.setRequestHeader("X-CSRFToken", csrftoken);
-            }
-        }
-    })
-</script>
-
+</script> {% endcomment %}
 
 {% endblock content %}

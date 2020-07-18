@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Subscribe
+from .models import Subscription
 
 # Register your models here.
-admin.site.register(Subscribe)
+admin.site.register(Subscription)
