@@ -76,67 +76,70 @@
 <div class="course-area section-padding course-page">
     <div class="container">
         <div class="row">
+
             {% for post in page_obj %}
-            <div class="col-md-4 col-sm-6">
-                <div class="single-item">
-                    <div class="single-item-image overlay-effect" style="300px; height: 211px">
-                        <a href="{{ post.get_absolute_url }}"><img src="{{ post.thumbnail.url }}" alt=""></a>
-                    </div>
-                    <div class="single-item-text">
-                        <div style="height:60px">
-                            <h4><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="single-item">
+                        <div class="single-item-image overlay-effect" style="300px; height: 211px">
+                            <a href="{{ post.get_absolute_url }}"><img src="{{ post.thumbnail.url }}" alt=""></a>
                         </div>
-                        <div class="single-item-text-info" style="height:60px">
-                            <span>By: <span>{{ post.user_id.get_full_name }}</span></span>
-                            <br />
-                            <span>Date: <span>{{ post.created_at }}</span></span>
-                        </div>
-                        <div style="height:60px">
-                            <p>{{ post.description }}</p>
-                        </div>
-                        <div class="single-item-content">
-                            <div class="single-item-comment-view">
-                                <span><i class="zmdi zmdi-eye"></i>{{ post.views }}</span>
-                                <span><i class="zmdi zmdi-comments"></i>{{ post.comments }}</span>
+                        <div class="single-item-text">
+                            <div style="height:60px">
+                                <h4><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
                             </div>
-                            <div class="single-item-rating">
-                                <i class="zmdi zmdi-star"></i>
-                                <i class="zmdi zmdi-star"></i>
-                                <i class="zmdi zmdi-star"></i>
-                                <i class="zmdi zmdi-star"></i>
-                                <i class="zmdi zmdi-star-half"></i>
+                            <div class="single-item-text-info" style="height:60px">
+                                <span>By: <span>{{ post.user_id.get_full_name }}</span></span>
+                                <br />
+                                <span>Date: <span>{{ post.created_at }}</span></span>
+                            </div>
+                            <div style="height:60px">
+                                <p>{{ post.description }}</p>
+                            </div>
+                            <div class="single-item-content">
+                                <div class="single-item-comment-view">
+                                    <span><i class="zmdi zmdi-eye"></i>{{ post.views }}</span>
+                                    <span><i class="zmdi zmdi-comments"></i>{{ post.comments }}</span>
+                                </div>
+                                <div class="single-item-rating">
+                                    <i class="zmdi zmdi-star"></i>
+                                    <i class="zmdi zmdi-star"></i>
+                                    <i class="zmdi zmdi-star"></i>
+                                    <i class="zmdi zmdi-star"></i>
+                                    <i class="zmdi zmdi-star-half"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="button-bottom">
-                        {% comment %} <a href="{% url 'post:post_detail' post.pk post.slug %}"
-                            class="button-default">Read Now</a> {% endcomment %}
-                        <a href="{{ post.get_absolute_url }}" class="button-default">Read Now</a>
+                        <div class="button-bottom">
+                            {% comment %} <a href="{% url 'post:post_detail' post.pk post.slug %}"
+                                class="button-default">Read Now</a> {% endcomment %}
+                            <a href="{{ post.get_absolute_url }}" class="button-default">Read Now</a>
+                        </div>
                     </div>
                 </div>
-            </div>
+
             {% endfor %}
+
         </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="pagination-content">
                     <ul class="pagination">
-                        {% comment %} <li><a href="#"><i class="zmdi zmdi-chevron-left"></i></a></li>
-                        <li class="current"><a href="#"><i class="zmdi zmdi-chevron-right"></i></a></li>
-                        {% endcomment %}
+                        
                         {% if page_obj.has_previous %}
-                        <li><a href="?page=1"><i class="zmdi zmdi-chevron-left"></i><i class="zmdi zmdi-chevron-left"></i></a></li>
-                        <li><a href="?page={{ page_obj.previous_page_number }}"><i class="zmdi zmdi-chevron-left"></i></a></li>
+
+                            <li><a href="?page=1"><i class="zmdi zmdi-chevron-left"></i><i class="zmdi zmdi-chevron-left"></i></a></li>
+                            <li><a href="?page={{ page_obj.previous_page_number }}"><i class="zmdi zmdi-chevron-left"></i></a></li>
+
                         {% endif %}
-                        {% comment %} <li>
-                        <span class="current">
-                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-                        </span>
-                        </li> {% endcomment %}
+
                         {% if page_obj.has_next %}
-                        <li><a href="?page={{ page_obj.next_page_number }}"><i class="zmdi zmdi-chevron-right"></i></a></li>
-                        <li><a href="?page={{ page_obj.paginator.num_pages }}"><i class="zmdi zmdi-chevron-right"></i><i class="zmdi zmdi-chevron-right"></i></a></li>
+
+                            <li><a href="?page={{ page_obj.next_page_number }}"><i class="zmdi zmdi-chevron-right"></i></a></li>
+                            <li><a href="?page={{ page_obj.paginator.num_pages }}"><i class="zmdi zmdi-chevron-right"></i><i class="zmdi zmdi-chevron-right"></i></a></li>
+
                         {% endif %}
+
                     </ul>
                 </div>
             </div>
@@ -162,7 +165,7 @@
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="single-teacher-item">
                     <div class="single-teacher-image">
-                        <a href="#"><img src="img/teacher/l-1.jpg" alt=""></a>
+                        <a href="#"><img src="{% static 'img/teacher/l-1.jpg' %}" alt=""></a>
                     </div>
                     <div class="single-teacher-text">
                         <h3><a href="#">Louis Smith</a></h3>
@@ -180,7 +183,7 @@
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="single-teacher-item">
                     <div class="single-teacher-image">
-                        <a href="#"><img src="img/teacher/l-2.jpg" alt=""></a>
+                        <a href="#"><img src="{% static 'img/teacher/l-2.jpg' %}" alt=""></a>
                     </div>
                     <div class="single-teacher-text">
                         <h3><a href="#">Louis Smith</a></h3>
@@ -198,7 +201,7 @@
             <div class="col-lg-3 col-md-4 hidden-sm">
                 <div class="single-teacher-item">
                     <div class="single-teacher-image">
-                        <a href="#"><img src="img/teacher/l-3.jpg" alt=""></a>
+                        <a href="#"><img src="{% static 'img/teacher/l-3.jpg' %}" alt=""></a>
                     </div>
                     <div class="single-teacher-text">
                         <h3><a href="#">Louis Smith</a></h3>
@@ -216,7 +219,7 @@
             <div class="col-lg-3 hidden-md hidden-sm">
                 <div class="single-teacher-item">
                     <div class="single-teacher-image">
-                        <a href="#"><img src="img/teacher/l-4.jpg" alt=""></a>
+                        <a href="#"><img src="{% static 'img/teacher/l-4.jpg' %}" alt=""></a>
                     </div>
                     <div class="single-teacher-text">
                         <h3><a href="#">Louis Smith</a></h3>

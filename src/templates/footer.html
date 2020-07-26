@@ -12,19 +12,11 @@
             </div>
             <div class="col-md-7 col-sm-7">
                 <div class="newsletter-form angle" id="mc_embed_signup">
-                    {% comment %} <form method="POST" id="mc-form" class="mc-form footer-newsletter fix" id="subscribe">
-                        {% csrf_token %}
-                        <div class="subscribe-form form-group">
-                            <input id="email_id" type="email" name="email_id" placeholder="Enter your email address...">
-                            <button id="email_submit" type="submit">SUBSCRIBE</button>
-                        </div>
-                    </form> {% endcomment %}
-
                     <form action="https://gmail.us3.list-manage.com/subscribe/post?u=15777aa60fa1b0270a930e5ab&amp;id=f63ed0b189"
                         method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate mc-form footer-newsletter fix" target="_blank"
                         novalidate>
-                        <div class="subscribe-form form-group" id="mc_embed_signup_scroll">
-                            <input id="mce-EMAIL" class="required email" value="" type="email" name="EMAIL" placeholder="Enter your email address..."
+                        <div class="subscribe-form" id="mc_embed_signup_scroll">
+                            <input id="mc-email mce-EMAIL" class="required email" value="" type="email" name="EMAIL" placeholder="Enter your email address..."
                             style="border:none">
                             <button type="submit" value="SUBSCRIBE" name="subscribe" id="mc-submit mc-embedded-subscribe" class="mc-btn">SUBSCRIBE</button>
                             <div style="position: absolute; left: -5000px;" aria-hidden="true">
@@ -32,7 +24,6 @@
                             </div>
                         </div>
                     </form>
-
                     <!-- mailchimp-alerts Start -->
                     <div class="mailchimp-alerts text-centre fix pull-right clear" id="mce-responses">
                         <div class="mailchimp-submitting response"></div><!-- mailchimp-submitting end -->
@@ -41,18 +32,6 @@
                     </div>
                     <!-- mailchimp-alerts end -->
 
-                    {% comment %} <form action=""
-                        method="post" id="subscribe" name="mc-embedded-subscribe-form" class="validate mc-form footer-newsletter fix" novalidate>
-                        {% csrf_token %}
-                        <div class="subscribe-form form-group">
-                            <input id="mce-EMAIL" type="email" name="EMAIL" placeholder="Enter your email address...">
-                            <button type="submit" value="SUBSCRIBE" name="subscribe" id="subscribe-btn">SUBSCRIBE</button>
-                            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
-                                    name="b_15777aa60fa1b0270a930e5ab_f63ed0b189" tabindex="-1" value=""></div>
-                        </div>
-                    </form> {% endcomment %}
-
-                    
                 </div>
             </div>
         </div>
@@ -63,13 +42,13 @@
 <!--Footer Widget Area Start-->
 <div class="footer-widget-area">
     <div class="container">
-        <div class="row">
-            <div class="col-md-3 col-sm-4">
-                <div class="single-footer-widget">
+        <div class="row" style="margin-top:-50px">
+            <div class="col-md-4">
+                <div class="single-footer-widget" style="margin-top:-20px">
                     <div class="footer-logo">
-                        <a href="index.html"><img src="img/logo/footer.png" alt=""></a>
+                        <a href="{% url 'home' %}"><img src="{% static 'img/logo/logo_gel.png' %}" alt=""></a>
                     </div>
-                    <p>There are many variations of passg of Lorem Ipsum available, but thmajority have suffered altem,
+                    <p>We link you to a green future!
                     </p>
                     <div class="social-icons">
                         <a href="#"><i class="zmdi zmdi-facebook"></i></a>
@@ -80,7 +59,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-4">
+            <div class="col-md-4">
                 <div class="single-footer-widget">
                     <h3>GET IN TOUCH</h3>
                     <span><i class="fa fa-phone"></i>+88 018 785 4589</span>
@@ -89,7 +68,7 @@
                     <span><i class="fa fa-map-marker"></i>ur address goes here,street.</span>
                 </div>
             </div>
-            <div class="col-md-3 hidden-sm">
+            <div class="col-md-4">
                 <div class="single-footer-widget">
                     <h3>Useful Links</h3>
                     <ul class="footer-list">
@@ -102,38 +81,13 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-4">
-                <div class="single-footer-widget">
-                    <h3>Instagram</h3>
-                    <div class="instagram-image">
-                        <div class="footer-img">
-                            <a href="#"><img src="img/footer/1.jpg" alt=""></a>
-                        </div>
-                        <div class="footer-img">
-                            <a href="#"><img src="img/footer/2.jpg" alt=""></a>
-                        </div>
-                        <div class="footer-img">
-                            <a href="#"><img src="img/footer/3.jpg" alt=""></a>
-                        </div>
-                        <div class="footer-img">
-                            <a href="#"><img src="img/footer/4.jpg" alt=""></a>
-                        </div>
-                        <div class="footer-img">
-                            <a href="#"><img src="img/footer/5.jpg" alt=""></a>
-                        </div>
-                        <div class="footer-img">
-                            <a href="#"><img src="img/footer/6.jpg" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>
 <!--End of Footer Widget Area-->
 
 <!--Footer Area Start-->
-<footer class="footer-area">
+{% comment %} <footer class="footer-area">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-sm-7">
@@ -146,5 +100,5 @@
             </div>
         </div>
     </div>
-</footer>
+</footer> {% endcomment %}
 <!--End of Footer Area-->
