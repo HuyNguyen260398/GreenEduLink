@@ -46,6 +46,25 @@
 <!--Course Area Start-->
 <div class="course-area section-padding course-page">
     <div class="container">
+
+        {% if posts_qs %}
+
+            <div class="row" style="margin-top:-50px; margin-bottom:50px">
+                <div class="col-md-12" style="text-align: center;">
+                    <h2 style="margin-bottom:70px">Results for "{{ search_query }}"</h2>
+                </div>
+            </div>
+
+        {% else %}
+
+            <div class="row" style="margin-top:-50px; margin-bottom:50px">
+                <div class="col-md-12" style="text-align: center;">
+                    <h2 style="margin-bottom:70px">Sorry, we cannot find results for "{{ search_query }}"</h2>
+                </div>
+            </div>
+
+        {% endif %}
+
         <div class="row">
 
             {% for post in page_obj %}

@@ -20,7 +20,10 @@ from django.urls import path, include
 from django.conf.urls.static import static
 
 from .views import (
-    home
+    home,
+    about,
+    contact,
+    send_email
 )
 
 from marketing.views import subscribe_email
@@ -29,6 +32,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('', home, name='home'),
+    path('about/', about, name='about'),
+    path('contact/', contact, name='contact'),
+    path('send_email', send_email, name='send_email'),
     path('post/', include('post.urls')),
     path('gallery/', include('gallery.urls')),
     path('subscribe/', include('marketing.urls')),

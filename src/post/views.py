@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
+from django.db.models import Q
 from .models import *
 from .forms import CommentForm
 
@@ -48,3 +49,21 @@ def post_detail(request, id, slug):
     post.views += 1
     post.save()
     return render(request, 'post/post_detail.html', context)
+
+
+def post_search(request):
+    posts_qs = Post.objects.all()
+    if request.method == 'GET':
+        search_query = request.GET.get('search_query')
+        if search_query != '' and search_query is not None:
+            posts_qs = posts_qs.filter(Q(title__icontains=search_query) |
+                                       Q(description__icontains=search_query)).distinct().order_by('-created_at')
+    paginator = Paginator(posts_qs, 9)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    context = {
+        'posts_qs': posts_qs,
+        'search_query': search_query,
+        'page_obj': page_obj
+    }
+    return render(request, "post/post_search.html", context)

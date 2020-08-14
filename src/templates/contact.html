@@ -1,0 +1,97 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!--Breadcrumb Banner Area Start-->
+<div class="breadcrumb-banner-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb-text">
+                    <h1 class="text-center">CONTACT US</h1>
+                    <div class="breadcrumb-bar">
+                        <ul class="breadcrumb text-center">
+                            <li><a href="index.html">Home</a></li>
+                            <li>CONTACT</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of Breadcrumb Banner Area-->
+
+<!--Google Map Area Start-->
+<div class="google-map-area">
+    <!--  Map Section -->
+    <div id="contacts" class="map-area">
+        <div id="googleMap" style="width:100%;height:700px">
+            <iframe style="width:100%; height:100%;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1647.8669018681649!2d106.6847548276217!3d10.787545404848634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f2c5552702f%3A0xf0adaedb0d2fc89a!2sGalasoft%20Co.%2C%20Ltd!5e0!3m2!1sen!2s!4v1586305376641!5m2!1sen!2s" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+    </div>
+</div>
+<!--End of Google Map Area-->
+
+<!--Contact Form Area Start-->
+<div class="contact-form-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h4 class="contact-title">contact info</h4>
+                <div class="contact-text">
+                    <p><span class="c-icon"><i class="zmdi zmdi-phone"></i></span><span class="c-text">(+84) 982 205 216 - (+84) 937 691 089</span></p>
+                    <p><span class="c-icon"><i class="zmdi zmdi-email"></i></span><span class="c-text">info.greenedulink@gmail.com</span></p>
+                    <p><span class="c-icon"><i class="zmdi zmdi-pin"></i></span><span class="c-text">M Floor, 117-119 Ly Chinh Thang Street,<br> Ward 7, District 3, Ho Chi Minh City</span></p>
+                </div>
+                <h4 class="contact-title">social media</h4>
+                <div class="link-social">
+                    <a href="https://www.facebook.com/greenedulink" target="_blank"><i class="zmdi zmdi-facebook"></i></a>
+                    <a href="#"><i class="zmdi zmdi-rss"></i></a>
+                    <a href="#"><i class="zmdi zmdi-google-plus"></i></a>
+                    <a href="#"><i class="zmdi zmdi-pinterest"></i></a>
+                    <a href="#"><i class="zmdi zmdi-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <h4 class="contact-title">send your massage</h4>
+                <form id="contact-form" action="{% url 'send_email' %}" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="text" name="name" placeholder="name">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="email" name="email" placeholder="Email">
+                        </div>
+                        <div class="col-md-12">
+                            <textarea name="message" cols="30" rows="10" placeholder="Message"></textarea>
+                            <button type="submit" class="button-default">SUBMIT</button>
+                        </div>
+                    </div>
+                </form>
+                {% comment %} <p class="form-messege"></p> {% endcomment %}
+
+                {% comment %} {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li class="{{ message.tags }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %} {% endcomment %}
+
+                {% if response_msg %}
+                <div class="alert alert-success" role="alert">
+                    {{ response_msg }}
+                </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of Contact Form-->
+
+{% endblock content %}

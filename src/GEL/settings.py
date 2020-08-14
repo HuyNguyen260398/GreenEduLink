@@ -154,3 +154,10 @@ MAILCHIMP_DATA_CENTER = 'us3'
 MAILCHIMP_EMAIL_LIST_ID = 'f63ed0b189'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'prj.ecom.pydj@gmail.com'
+EMAIL_HOST_PASSWORD = 'Python337Django22'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
