@@ -23,7 +23,8 @@ from .views import (
     home,
     about,
     contact,
-    send_email
+    send_email,
+    founder_info,
 )
 
 from marketing.views import subscribe_email
@@ -34,6 +35,7 @@ urlpatterns = [
     path('', home, name='home'),
     path('about/', about, name='about'),
     path('contact/', contact, name='contact'),
+    path('founder_info/', founder_info, name='founder_info'),
     path('send_email', send_email, name='send_email'),
     path('post/', include('post.urls')),
     path('gallery/', include('gallery.urls')),

@@ -13,7 +13,7 @@
                     <h1 class="text-center">CONTACT US</h1>
                     <div class="breadcrumb-bar">
                         <ul class="breadcrumb text-center">
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="{% url 'home' %}">Home</a></li>
                             <li>CONTACT</li>
                         </ul>
                     </div>
@@ -24,6 +24,7 @@
 </div>
 <!--End of Breadcrumb Banner Area-->
 
+{% if not success_msg and not error_msg %}
 <!--Google Map Area Start-->
 <div class="google-map-area">
     <!--  Map Section -->
@@ -34,6 +35,7 @@
     </div>
 </div>
 <!--End of Google Map Area-->
+{% endif %}
 
 <!--Contact Form Area Start-->
 <div class="contact-form-area section-padding">
@@ -57,7 +59,7 @@
             </div>
             <div class="col-md-7">
                 <h4 class="contact-title">send your massage</h4>
-                <form id="contact-form" action="{% url 'send_email' %}" method="post">
+                <form action="{% url 'send_email' %}" method="post">
                     {% csrf_token %}
                     <div class="row">
                         <div class="col-md-6">
@@ -72,19 +74,14 @@
                         </div>
                     </div>
                 </form>
-                {% comment %} <p class="form-messege"></p> {% endcomment %}
 
-                {% comment %} {% if messages %}
-                <ul class="messages">
-                    {% for message in messages %}
-                    <li class="{{ message.tags }}">{{ message }}</li>
-                    {% endfor %}
-                </ul>
-                {% endif %} {% endcomment %}
-
-                {% if response_msg %}
+                {% if success_msg %}
                 <div class="alert alert-success" role="alert">
-                    {{ response_msg }}
+                    {{ success_msg }}
+                </div>
+                {% elif error_msg %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error_msg }}
                 </div>
                 {% endif %}
 

@@ -149,10 +149,6 @@ AUTH_USER_MODEL = 'account.User'
 
 CKEDITOR_UPLOAD_PATH = 'ckupload/'
 
-MAILCHIMP_API_KEY = '855cfffaf8c96d1fade68c98803f8da9-us3'
-MAILCHIMP_DATA_CENTER = 'us3'
-MAILCHIMP_EMAIL_LIST_ID = 'f63ed0b189'
-
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 EMAIL_HOST = 'smtp.gmail.com'

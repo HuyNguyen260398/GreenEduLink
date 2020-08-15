@@ -140,7 +140,7 @@
         {% endfor %}
 
             <div class="col-md-12 col-sm-12 text-center">
-                <a href="#" class="button-default button-large">Browse All Courses <i
+                <a href="{% url 'post:post' %}" class="button-default button-large">Browse All Posts <i
                         class="zmdi zmdi-chevron-right"></i></a>
             </div>
         </div>
@@ -234,120 +234,35 @@
 </div>
 <!--End of Latest News Area-->
 
-<!--Online Product Area Start-->
-<div class="product-area section-bottom-padding bg-white">
+<!--Teachers Area Start-->
+<div class="teachers-area padding-top">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="section-title-wrapper">
                     <div class="section-title">
-                        <h3>Online Library</h3>
-                        <p>"The reading of all good books is like a conversation with the finest minds of past centuries" - Rene Descartes</p>
+                        <h3>OUR FOUNDERS</h3>
+                        <p>A good teacher is like a candle – it consumes itself to light the way for others - Mustafakemal Ataturk</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3 col-sm-4">
-                <div class="single-product-item">
-                    <div class="single-product-image">
-                        <a href="#"><img src="{% static 'img/product/1.jpg' %}" alt=""></a>
+            <div class="col-lg-3 col-md-4 col-sm-6" style="float: none; margin: 0 auto;">
+                <div class="single-teacher-item">
+                    <div class="single-teacher-image">
+                        <a href="{% url 'founder_info' %}"><img src="{% static 'img/teacher/anthonynguyen2.jpg' %}" alt=""></a>
                     </div>
-                    <div class="single-product-text">
-                        <h4><a href="#">Title Product Here</a></h4>
-                        <h5>Book</h5>
-                        <div class="product-price">
-                            <h3>$ 28</h3>
-                            <div class="single-item-rating">
-                                <i class="zmdi zmdi-star"></i>
-                                <i class="zmdi zmdi-star"></i>
-                                <i class="zmdi zmdi-star"></i>
-                                <i class="zmdi zmdi-star"></i>
-                                <i class="zmdi zmdi-star-half"></i>
-                            </div>
-                        </div>
-                        <div class="product-buttons">
-                            <button type="button" class="button-default cart-btn">ADD TO CART</button>
-                            <button type="button" class="button-default"><i class="zmdi zmdi-favorite"></i></button>
-                            <button type="button" class="button-default"><i class="zmdi zmdi-refresh-alt"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-4">
-                <div class="single-product-item">
-                    <div class="single-product-image">
-                        <a href="#"><img src="{% static 'img/product/2.jpg' %}" alt=""></a>
-                    </div>
-                    <div class="single-product-text">
-                        <h4><a href="#">Title Product Here</a></h4>
-                        <h5>Book</h5>
-                        <div class="product-price">
-                            <h3>$ 28</h3>
-                            <div class="single-item-rating">
-                                <i class="zmdi zmdi-star"></i>
-                                <i class="zmdi zmdi-star"></i>
-                                <i class="zmdi zmdi-star"></i>
-                                <i class="zmdi zmdi-star"></i>
-                                <i class="zmdi zmdi-star-half"></i>
-                            </div>
-                        </div>
-                        <div class="product-buttons">
-                            <button type="button" class="button-default cart-btn">ADD TO CART</button>
-                            <button type="button" class="button-default"><i class="zmdi zmdi-favorite"></i></button>
-                            <button type="button" class="button-default"><i class="zmdi zmdi-refresh-alt"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-4">
-                <div class="single-product-item">
-                    <div class="single-product-image">
-                        <a href="#"><img src="{% static 'img/product/3.jpg' %}" alt=""></a>
-                    </div>
-                    <div class="single-product-text">
-                        <h4><a href="#">Title Product Here</a></h4>
-                        <h5>Book</h5>
-                        <div class="product-price">
-                            <h3>$ 28</h3>
-                            <div class="single-item-rating">
-                                <i class="zmdi zmdi-star"></i>
-                                <i class="zmdi zmdi-star"></i>
-                                <i class="zmdi zmdi-star"></i>
-                                <i class="zmdi zmdi-star"></i>
-                                <i class="zmdi zmdi-star-half"></i>
-                            </div>
-                        </div>
-                        <div class="product-buttons">
-                            <button type="button" class="button-default cart-btn">ADD TO CART</button>
-                            <button type="button" class="button-default"><i class="zmdi zmdi-favorite"></i></button>
-                            <button type="button" class="button-default"><i class="zmdi zmdi-refresh-alt"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 hidden-sm">
-                <div class="single-product-item">
-                    <div class="single-product-image">
-                        <a href="#"><img src="{% static 'img/product/4.jpg' %}" alt=""></a>
-                    </div>
-                    <div class="single-product-text">
-                        <h4><a href="#">Title Product Here</a></h4>
-                        <h5>Book</h5>
-                        <div class="product-price">
-                            <h3>$ 28</h3>
-                            <div class="single-item-rating">
-                                <i class="zmdi zmdi-star"></i>
-                                <i class="zmdi zmdi-star"></i>
-                                <i class="zmdi zmdi-star"></i>
-                                <i class="zmdi zmdi-star"></i>
-                                <i class="zmdi zmdi-star-half"></i>
-                            </div>
-                        </div>
-                        <div class="product-buttons">
-                            <button type="button" class="button-default cart-btn">ADD TO CART</button>
-                            <button type="button" class="button-default"><i class="zmdi zmdi-favorite"></i></button>
-                            <button type="button" class="button-default"><i class="zmdi zmdi-refresh-alt"></i></button>
+                    <div class="single-teacher-text">
+                        <h3><a href="{% url 'founder_info' %}">Anthony Nguyen</a></h3>
+                        <h4>CEO</h4>
+                        <p>"Engineering is the closest thing to magic that exists in the world."</p>
+                        <p>Elon Musk</p>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/dung.tri.102" target="_blank"><i class="zmdi zmdi-facebook"></i></a>
+                            <a href="#"><i class="zmdi zmdi-twitter"></i></a>
+                            <a href="#"><i class="zmdi zmdi-google-old"></i></a>
+                            <a href="#"><i class="zmdi zmdi-instagram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -355,158 +270,6 @@
         </div>
     </div>
 </div>
-<!--End of Online Product Area-->
-
-<!--Testimonial Area Start-->
-<div class="testimonial-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-lg-offset-0 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
-                <div class="row">
-                    <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
-                        <div class="testimonial-image-slider text-center">
-                            <div class="sin-testiImage">
-                                <img src="{% static 'img/testimonial/1.jpg' %}" alt="testimonial 1" />
-                            </div>
-                            <div class="sin-testiImage">
-                                <img src="{% static 'img/testimonial/2.jpg' %}" alt="testimonial 2" />
-                            </div>
-                            <div class="sin-testiImage">
-                                <img src="{% static 'img/testimonial/3.jpg' %}" alt="testimonial 3" />
-                            </div>
-                            <div class="sin-testiImage">
-                                <img src="{% static 'img/testimonial/1.jpg' %}" alt="testimonial 1" />
-                            </div>
-                            <div class="sin-testiImage">
-                                <img src="{% static 'img/testimonial/2.jpg' %}" alt="testimonial 2" />
-                            </div>
-                            <div class="sin-testiImage">
-                                <img src="{% static 'img/testimonial/3.jpg' %}" alt="testimonial 3" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-text-slider text-center">
-                    <div class="sin-testiText">
-                        <h2>M S Nawaz </h2>
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-                            suffered alteration in some form, by injected humour, or randomised words which don't look
-                            even slightly believable.</p>
-                    </div>
-                    <div class="sin-testiText">
-                        <h2>Chowchilla Madera</h2>
-                        <p>Nam nec tellus a odio tincidunt This lorem is Photoshop's version of Lorem Ipsum. Proin
-                            gravida nibh vel velit auctor aliquet. Aenean nisi sollicitudin, lorem quis bibendum auctor,
-                            nisi elit consequat ipsum gravida.</p>
-                    </div>
-                    <div class="sin-testiText">
-                        <h2>Kattie Luis</h2>
-                        <p>Nam nec tellus a odio tincidunt This is Photoshop's version of Lorem Ipsum. Proin gravida
-                            nibh vel velit auctor aliquet. Aenean tincidunt sollicitudin, lorem quis bibendum auctor,
-                            nisi elit consequat ipsum Photoshop.</p>
-                    </div>
-                    <div class="sin-testiText">
-                        <h2>M S Nawaz </h2>
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-                            suffered alteration in some form, by injected humour, or randomised words which don't look
-                            even slightly believable.</p>
-                    </div>
-                    <div class="sin-testiText">
-                        <h2>Chowchilla Madera</h2>
-                        <p>Nam nec tellus a odio tincidunt This is Photoshop's version of Lorem Ipsum. Proin gravida
-                            nibh vel velit auctor aliquet. Aenean sollicitudin, aliquet lorem quis tellus velit bibendum
-                            auctor, nisi elit consequat ipsum</p>
-                    </div>
-                    <div class="sin-testiText">
-                        <h2>Kattie Luis</h2>
-                        <p>Nam nec tellus a odio tincidunt This is Photoshop's version of Lorem Ipsum. Proin gravida
-                            nibh vel velit auctor aliquet. Aenean sollicitudin, lorem gravida tincidunt quis bibendum
-                            auctor, nisi elit consequat ipsum</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!--End of Testimonial Area-->
-
-<!--Event Area Start-->
-<div class="event-area section-padding bg-white">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-title-wrapper">
-                    <div class="section-title">
-                        <h3>OUR EVENTS</h3>
-                        <p>Adventure is the best way to learn</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4 col-sm-6">
-                <div class="single-event-item">
-                    <div class="single-event-image">
-                        <a href="#">
-                            <img src="{% static 'img/event/1.jpg' %}" alt="">
-                            <span><span>15</span>Jun</span>
-                        </a>
-                    </div>
-                    <div class="single-event-text">
-                        <h3><a href="#">Learn English in ease</a></h3>
-                        <div class="single-item-comment-view">
-                            <span><i class="zmdi zmdi-time"></i>4.00 pm - 8.00 pm</span>
-                            <span><i class="zmdi zmdi-pin"></i>Dhaka Bangladesh</span>
-                        </div>
-                        <p>There are many variaons of passa of Lorem Ipsuable, amrn in sofby injected humour, amr sarata
-                            din megla....</p>
-                        <a class="button-default" href="#">LEARN Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="single-event-item">
-                    <div class="single-event-image">
-                        <a href="#">
-                            <img src="{% static 'img/event/2.jpg' %}" alt="">
-                            <span><span>20</span>Apr</span>
-                        </a>
-                    </div>
-                    <div class="single-event-text">
-                        <h3><a href="#">Learn English in ease</a></h3>
-                        <div class="single-item-comment-view">
-                            <span><i class="zmdi zmdi-time"></i>4.00 pm - 8.00 pm</span>
-                            <span><i class="zmdi zmdi-pin"></i>Jessore Bangladesh</span>
-                        </div>
-                        <p>There are many variaons of passa of Lorem Ipsuable, amrn in sofby injected humour, amr sarata
-                            din megla....</p>
-                        <a class="button-default" href="#">LEARN Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 hidden-sm">
-                <div class="single-event-item">
-                    <div class="single-event-image">
-                        <a href="#">
-                            <img src="{% static 'img/event/3.jpg' %}" alt="">
-                            <span><span>06</span>Dec</span>
-                        </a>
-                    </div>
-                    <div class="single-event-text">
-                        <h3><a href="#">Learn English in ease</a></h3>
-                        <div class="single-item-comment-view">
-                            <span><i class="zmdi zmdi-time"></i>4.00 pm - 8.00 pm</span>
-                            <span><i class="zmdi zmdi-pin"></i>Dhaka. Bangladesh</span>
-                        </div>
-                        <p>There are many variaons of passa of Lorem Ipsuable, amrn in sofby injected humour, amr sarata
-                            din megla....</p>
-                        <a class="button-default" href="#">LEARN Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!--End of Event Area-->
+<!--End of Teachers Area-->
 
 {% endblock content %}

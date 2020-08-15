@@ -11,8 +11,8 @@
                     <h1 class="text-center">Image Gallery</h1>
                     <div class="breadcrumb-bar">
                         <ul class="breadcrumb text-center">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Picture Gallery</a></li>
+                            <li><a href="{% url 'home' %}">Home</a></li>
+                            <li>Picture Gallery</li>
                         </ul>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
     <div class="container">
         <div class="row">
 
-            {% for picture in pictures %}
+            {% for picture in page_obj %}
 
             <div class="col-md-4 mb-30 col-sm-6">
                 <div class="gallery-img">
@@ -39,6 +39,31 @@
             {% endfor %}
 
         </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="pagination-content">
+                    <ul class="pagination">
+                        
+                        {% if page_obj.has_previous %}
+
+                            <li><a href="?page=1"><i class="zmdi zmdi-chevron-left"></i><i class="zmdi zmdi-chevron-left"></i></a></li>
+                            <li><a href="?page={{ page_obj.previous_page_number }}"><i class="zmdi zmdi-chevron-left"></i></a></li>
+
+                        {% endif %}
+
+                        {% if page_obj.has_next %}
+
+                            <li><a href="?page={{ page_obj.next_page_number }}"><i class="zmdi zmdi-chevron-right"></i></a></li>
+                            <li><a href="?page={{ page_obj.paginator.num_pages }}"><i class="zmdi zmdi-chevron-right"></i><i class="zmdi zmdi-chevron-right"></i></a></li>
+
+                        {% endif %}
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 <!--End of Gallery Area-->

@@ -1,0 +1,170 @@
+{% extends "main.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<!--Breadcrumb Banner Area Start-->
+<div class="breadcrumb-banner-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb-text">
+                    <h1 class="text-center">OUR FOUNDER</h1>
+                    <div class="breadcrumb-bar">
+                        <ul class="breadcrumb text-center">
+                            <li><a href="{% url 'home' %}">Home</a></li>
+                            <li>FOUNDER</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of Breadcrumb Banner Area-->
+
+<!--Course Details Area Start-->
+<div class="course-details-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="course-details-content">
+                    <div class="single-course-details">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="overlay-effect">
+                                    <a href="#"><img alt="" src="{% static 'img/teacher/anthonynguyen2.jpg' %}"></a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="single-item-text">
+                                    <h4>Anthony Nguyen</h4>
+                                    <div class="single-item-text-info">
+                                        <span>Position: <span>CEO</span></span>
+                                        <span>Age: <span>20</span></span>
+                                    </div>
+                                    <div class="course-text-content">
+                                        <p>There are many varians of sages of Lorem Ipsum available, but the mrity have
+                                            suffered alteration in soe orm, by injected humour,There are many buthe mri
+                                            have suffered alteration in some</p>
+                                        <p>but the mrity have suffered alteration in some orm, mora ekti fol ke bacabo
+                                            herre many buthe mri have suffered alteration in</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-title-wrapper">
+                        <div class="section-title">
+                            <h3>Skills and Experience</h3>
+                            <p>Learning is the treasure that will follow its owner everywhere.</p>
+                        </div>
+                    </div>
+                    <div class="experience-skill-wrapper">
+                        <div class="skill-bar-item">
+                            <span>Leader</span>
+                            <div class="progress">
+                                <div class="progress-bar wow fadeInLeft" data-progress="80%" style="width: 80%;"
+                                    data-wow-duration="1.5s" data-wow-delay="1.2s">
+                                    <span class="text-top">80%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <span>Team Work</span>
+                            <div class="progress">
+                                <div class="progress-bar wow fadeInLeft" data-progress="75%" style="width: 75%;"
+                                    data-wow-duration="1.5s" data-wow-delay="1.2s">
+                                    <span class="text-top">75%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <span>Negotiation</span>
+                            <div class="progress">
+                                <div class="progress-bar wow fadeInLeft" data-progress="90%" style="width: 90%;"
+                                    data-wow-duration="1.5s" data-wow-delay="1.2s">
+                                    <span class="text-top">90%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <span>Time Management</span>
+                            <div class="progress">
+                                <div class="progress-bar wow fadeInLeft" data-progress="70%" style="width: 70%;"
+                                    data-wow-duration="1.5s" data-wow-delay="1.2s">
+                                    <span class="text-top">70%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <span>English</span>
+                            <div class="progress">
+                                <div class="progress-bar wow fadeInLeft" data-progress="85%" style="width: 85%;"
+                                    data-wow-duration="1.5s" data-wow-delay="1.2s">
+                                    <span class="text-top">85%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="sidebar-widget">
+                    <div class="single-sidebar-widget">
+                        <h4 class="title">Related Post</h4>
+
+                        {% for post_item in post_list %}
+                        <div class="single-item">
+                            <div class="single-item-image overlay-effect">
+                                <a href="{{ post_item.get_absolute_url }}"><img alt="" src="{{ post_item.thumbnail.url }}"></a>
+                            </div>
+                            <div class="single-item-text">
+                                <h4><a href="{{ post_item.get_absolute_url }}">{{ post_item.title }}</a></h4>
+                                <div class="single-item-text-info">
+                                    <span>By: <span>{{ post_item.user_id.get_full_name }}</span></span>
+                                    <span>Date: <span>{{ post_item.created_at }}</span></span>
+                                </div>
+                                <p>{{ post.description }}</p>
+                                <div class="single-item-content">
+                                    <div class="single-item-comment-view">
+                                        <span><i class="zmdi zmdi-eye"></i>{{ post.views }}</span>
+                                        <span><i class="zmdi zmdi-comments"></i>{{ post.comments }}</span>
+                                    </div>
+                                    <div class="single-item-rating">
+                                        <i class="zmdi zmdi-star"></i>
+                                        <i class="zmdi zmdi-star"></i>
+                                        <i class="zmdi zmdi-star"></i>
+                                        <i class="zmdi zmdi-star"></i>
+                                        <i class="zmdi zmdi-star-half"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="button-bottom">
+                                <a class="button-default" href="{{ post_item.get_absolute_url }}">Read Now</a>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                    <div class="single-sidebar-widget">
+                        <h4 class="title">Search by Tags</h4>
+                        <ul class="tags">
+                            <li><a href="#">Photoshop</a></li>
+                            <li><a href="#">Design</a></li>
+                            <li><a href="#">Tutorial</a></li>
+                            <li><a href="#">Courses</a></li>
+                            <li><a href="#">Premium</a></li>
+                            <li><a href="#">Designtuto</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of Course Details Area-->
+
+{% endblock %}

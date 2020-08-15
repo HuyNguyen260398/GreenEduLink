@@ -60,97 +60,6 @@
 </div>
 <!--End of About Page Area-->
 
-<!--Skill And Experience Area Start-->
-<div class="skill-and-experience-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-title-wrapper">
-                    <div class="section-title">
-                        <h3>Skills and Experience</h3>
-                        <p>Learning is the treasure that will follow its owner everywhere.</p>
-                    </div>
-                </div> 
-            </div>       
-        </div>
-        <div class="row">
-            <div class="col-md-6 col-sm-6">
-                <div class="experience-skill-wrapper">
-                    <div class="skill-bar-item">
-                        <span>Programming</span>
-                        <div class="progress">
-                            <div class="progress-bar wow fadeInLeft" data-progress="80%" style="width: 80%;" data-wow-duration="1.5s" data-wow-delay="1.2s">
-                                <span class="text-top">80%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-bar-item">
-                        <span>Designing</span>
-                        <div class="progress">
-                            <div class="progress-bar wow fadeInLeft" data-progress="75%" style="width: 75%;" data-wow-duration="1.5s" data-wow-delay="1.2s">
-                                <span class="text-top">75%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-bar-item">
-                        <span>Creative Writing</span>
-                        <div class="progress">
-                            <div class="progress-bar wow fadeInLeft" data-progress="90%" style="width: 90%;" data-wow-duration="1.5s" data-wow-delay="1.2s">
-                                <span class="text-top">90%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-bar-item">
-                        <span>English Lessons</span>
-                        <div class="progress">
-                            <div class="progress-bar wow fadeInLeft" data-progress="70%" style="width: 70%;" data-wow-duration="1.5s" data-wow-delay="1.2s">
-                                <span class="text-top">70%</span>
-                            </div>
-                        </div>
-                    </div>  
-                </div>    
-            </div>
-            <div class="col-md-6 col-sm-6">
-                <div class="experience-skill-wrapper">
-                    <div class="skill-bar-item">
-                        <span>Programming</span>
-                        <div class="progress">
-                            <div class="progress-bar wow fadeInLeft" data-progress="75%" style="width: 75%;" data-wow-duration="1.5s" data-wow-delay="1.2s">
-                                <span class="text-top">75%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-bar-item">
-                        <span>Creative Writing</span>
-                        <div class="progress">
-                            <div class="progress-bar wow fadeInLeft" data-progress="90%" style="width: 90%;" data-wow-duration="1.5s" data-wow-delay="1.2s">
-                                <span class="text-top">90%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-bar-item">
-                        <span>Designing</span>
-                        <div class="progress">
-                            <div class="progress-bar wow fadeInLeft" data-progress="80%" style="width: 80%;" data-wow-duration="1.5s" data-wow-delay="1.2s">
-                                <span class="text-top">80%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-bar-item">
-                        <span>English Lessons</span>
-                        <div class="progress">
-                            <div class="progress-bar wow fadeInLeft" data-progress="100%" style="width: 100%;" data-wow-duration="1.5s" data-wow-delay="1.2s">
-                                <span class="text-top">100%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>    
-            </div>
-        </div>
-    </div>
-</div>
-<!--End of Skill And Experience Area-->
-
 <!--Teachers Area Start-->
 <div class="teachers-area padding-top">
     <div class="container">
@@ -158,7 +67,7 @@
             <div class="col-md-12">
                 <div class="section-title-wrapper">
                     <div class="section-title">
-                        <h3>OUR FOUNDERS</h3>
+                        <h3>OUR FOUNDER</h3>
                         <p>A good teacher is like a candle – it consumes itself to light the way for others - Mustafakemal Ataturk</p>
                     </div>
                 </div>
@@ -168,10 +77,10 @@
             <div class="col-lg-3 col-md-4 col-sm-6" style="float: none; margin: 0 auto;">
                 <div class="single-teacher-item">
                     <div class="single-teacher-image">
-                        <a href="#"><img src="{% static 'img/teacher/anthonynguyen2.jpg' %}" alt=""></a>
+                        <a href="{% url 'founder_info' %}"><img src="{% static 'img/teacher/anthonynguyen2.jpg' %}" alt=""></a>
                     </div>
                     <div class="single-teacher-text">
-                        <h3><a href="#">Anthony Nguyen</a></h3>
+                        <h3><a href="{% url 'founder_info' %}">Anthony Nguyen</a></h3>
                         <h4>CEO</h4>
                         <p>"Engineering is the closest thing to magic that exists in the world."</p>
                         <p>Elon Musk</p>

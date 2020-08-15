@@ -13,7 +13,7 @@
                     <h1 class="text-center">POPULAR POSTS</h1>
                     <div class="breadcrumb-bar">
                         <ul class="breadcrumb text-center">
-                            <li><a href="#">Home</a></li>
+                            <li><a href="{% url 'home' %}">Home</a></li>
                             <li>Posts</li>
                         </ul>
                     </div>
@@ -32,7 +32,8 @@
                 <form action="{% url 'post:post_search' %}" method="get">
                     <div class="form-container">
                         <div class="box-select">
-                            <input type="text" class="form-control" name="search_query" placeholder="Search post" style="width:600px; height:50px">
+                            <input type="text" class="form-control" name="search_query" placeholder="Search post"
+                                style="width:600px; height:50px">
                         </div>
                         <button type="submit" style="margin-top:-50px; height:50px">Search Course</button>
                     </div>
@@ -46,48 +47,64 @@
 <!--Course Area Start-->
 <div class="course-area section-padding course-page">
     <div class="container">
+
+        {% if search_query or tag %}
+
+        <div class="row" style="margin-top:-50px; margin-bottom:50px">
+            <div class="col-md-12" style="text-align: center;">
+                {% if posts_qs %}
+                <h2 style="margin-bottom:70px">Posts related to
+                    "{% if search_query %}{{ search_query }}{% else %}{{ tag }}{% endif %}"</h2>
+                {% else %}
+                <h2 style="margin-bottom:70px">Sorry, we cannot find any posts related to
+                    "{% if search_query %}{{ search_query }}{% else %}{{ tag }}{% endif %}"</h2>
+                {% endif %}
+
+            </div>
+        </div>
+
+        {% endif %}
+
         <div class="row">
 
             {% for post in page_obj %}
 
-                <div class="col-md-4 col-sm-6">
-                    <div class="single-item">
-                        <div class="single-item-image overlay-effect" style="300px; height: 211px">
-                            <a href="{{ post.get_absolute_url }}"><img src="{{ post.thumbnail.url }}" alt=""></a>
+            <div class="col-md-4 col-sm-6">
+                <div class="single-item">
+                    <div class="single-item-image overlay-effect" style="300px; height: 211px">
+                        <a href="{{ post.get_absolute_url }}"><img src="{{ post.thumbnail.url }}" alt=""></a>
+                    </div>
+                    <div class="single-item-text">
+                        <div style="height:60px">
+                            <h4><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
                         </div>
-                        <div class="single-item-text">
-                            <div style="height:60px">
-                                <h4><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
-                            </div>
-                            <div class="single-item-text-info" style="height:60px">
-                                <span>By: <span>{{ post.user_id.get_full_name }}</span></span>
-                                <br />
-                                <span>Date: <span>{{ post.created_at }}</span></span>
-                            </div>
-                            <div style="height:60px">
-                                <p>{{ post.description }}</p>
-                            </div>
-                            <div class="single-item-content">
-                                <div class="single-item-comment-view">
-                                    <span><i class="zmdi zmdi-eye"></i>{{ post.views }}</span>
-                                    <span><i class="zmdi zmdi-comments"></i>{{ post.comments }}</span>
-                                </div>
-                                <div class="single-item-rating">
-                                    <i class="zmdi zmdi-star"></i>
-                                    <i class="zmdi zmdi-star"></i>
-                                    <i class="zmdi zmdi-star"></i>
-                                    <i class="zmdi zmdi-star"></i>
-                                    <i class="zmdi zmdi-star-half"></i>
-                                </div>
-                            </div>
+                        <div class="single-item-text-info" style="height:60px">
+                            <span>By: <span>{{ post.user_id.get_full_name }}</span></span>
+                            <br />
+                            <span>Date: <span>{{ post.created_at }}</span></span>
                         </div>
-                        <div class="button-bottom">
-                            {% comment %} <a href="{% url 'post:post_detail' post.pk post.slug %}"
-                                class="button-default">Read Now</a> {% endcomment %}
-                            <a href="{{ post.get_absolute_url }}" class="button-default">Read Now</a>
+                        <div style="height:60px">
+                            <p>{{ post.description }}</p>
+                        </div>
+                        <div class="single-item-content">
+                            <div class="single-item-comment-view">
+                                <span><i class="zmdi zmdi-eye"></i>{{ post.views }}</span>
+                                <span><i class="zmdi zmdi-comments"></i>{{ post.comments }}</span>
+                            </div>
+                            <div class="single-item-rating">
+                                <i class="zmdi zmdi-star"></i>
+                                <i class="zmdi zmdi-star"></i>
+                                <i class="zmdi zmdi-star"></i>
+                                <i class="zmdi zmdi-star"></i>
+                                <i class="zmdi zmdi-star-half"></i>
+                            </div>
                         </div>
                     </div>
+                    <div class="button-bottom">
+                        <a href="{{ post.get_absolute_url }}" class="button-default">Read Now</a>
+                    </div>
                 </div>
+            </div>
 
             {% endfor %}
 
@@ -96,18 +113,22 @@
             <div class="col-md-12">
                 <div class="pagination-content">
                     <ul class="pagination">
-                        
+
                         {% if page_obj.has_previous %}
 
-                            <li><a href="?page=1"><i class="zmdi zmdi-chevron-left"></i><i class="zmdi zmdi-chevron-left"></i></a></li>
-                            <li><a href="?page={{ page_obj.previous_page_number }}"><i class="zmdi zmdi-chevron-left"></i></a></li>
+                        <li><a href="?page=1"><i class="zmdi zmdi-chevron-left"></i><i
+                                    class="zmdi zmdi-chevron-left"></i></a></li>
+                        <li><a href="?page={{ page_obj.previous_page_number }}"><i
+                                    class="zmdi zmdi-chevron-left"></i></a></li>
 
                         {% endif %}
 
                         {% if page_obj.has_next %}
 
-                            <li><a href="?page={{ page_obj.next_page_number }}"><i class="zmdi zmdi-chevron-right"></i></a></li>
-                            <li><a href="?page={{ page_obj.paginator.num_pages }}"><i class="zmdi zmdi-chevron-right"></i><i class="zmdi zmdi-chevron-right"></i></a></li>
+                        <li><a href="?page={{ page_obj.next_page_number }}"><i class="zmdi zmdi-chevron-right"></i></a>
+                        </li>
+                        <li><a href="?page={{ page_obj.paginator.num_pages }}"><i class="zmdi zmdi-chevron-right"></i><i
+                                    class="zmdi zmdi-chevron-right"></i></a></li>
 
                         {% endif %}
 
@@ -118,96 +139,5 @@
     </div>
 </div>
 <!--End of Course Area-->
-
-<!--Teachers Area Start-->
-<div class="teachers-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-title-wrapper">
-                    <div class="section-title">
-                        <h3>OUR TEACHERS</h3>
-                        <p>There are many variations of passages of Lorem Ipsum</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="single-teacher-item">
-                    <div class="single-teacher-image">
-                        <a href="#"><img src="{% static 'img/teacher/l-1.jpg' %}" alt=""></a>
-                    </div>
-                    <div class="single-teacher-text">
-                        <h3><a href="#">Louis Smith</a></h3>
-                        <h4>Teacher</h4>
-                        <p>There are many variaons of passa of Lorem Ipsuable, amrn in sofby injected humour, amr</p>
-                        <div class="social-links">
-                            <a href="#"><i class="zmdi zmdi-facebook"></i></a>
-                            <a href="#"><i class="zmdi zmdi-twitter"></i></a>
-                            <a href="#"><i class="zmdi zmdi-google-old"></i></a>
-                            <a href="#"><i class="zmdi zmdi-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="single-teacher-item">
-                    <div class="single-teacher-image">
-                        <a href="#"><img src="{% static 'img/teacher/l-2.jpg' %}" alt=""></a>
-                    </div>
-                    <div class="single-teacher-text">
-                        <h3><a href="#">Louis Smith</a></h3>
-                        <h4>Teacher</h4>
-                        <p>There are many variaons of passa of Lorem Ipsuable, amrn in sofby injected humour, amr</p>
-                        <div class="social-links">
-                            <a href="#"><i class="zmdi zmdi-facebook"></i></a>
-                            <a href="#"><i class="zmdi zmdi-twitter"></i></a>
-                            <a href="#"><i class="zmdi zmdi-google-old"></i></a>
-                            <a href="#"><i class="zmdi zmdi-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 hidden-sm">
-                <div class="single-teacher-item">
-                    <div class="single-teacher-image">
-                        <a href="#"><img src="{% static 'img/teacher/l-3.jpg' %}" alt=""></a>
-                    </div>
-                    <div class="single-teacher-text">
-                        <h3><a href="#">Louis Smith</a></h3>
-                        <h4>Teacher</h4>
-                        <p>There are many variaons of passa of Lorem Ipsuable, amrn in sofby injected humour, amr</p>
-                        <div class="social-links">
-                            <a href="#"><i class="zmdi zmdi-facebook"></i></a>
-                            <a href="#"><i class="zmdi zmdi-twitter"></i></a>
-                            <a href="#"><i class="zmdi zmdi-google-old"></i></a>
-                            <a href="#"><i class="zmdi zmdi-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 hidden-md hidden-sm">
-                <div class="single-teacher-item">
-                    <div class="single-teacher-image">
-                        <a href="#"><img src="{% static 'img/teacher/l-4.jpg' %}" alt=""></a>
-                    </div>
-                    <div class="single-teacher-text">
-                        <h3><a href="#">Louis Smith</a></h3>
-                        <h4>Teacher</h4>
-                        <p>There are many variaons of passa of Lorem Ipsuable, amrn in sofby injected humour, amr</p>
-                        <div class="social-links">
-                            <a href="#"><i class="zmdi zmdi-facebook"></i></a>
-                            <a href="#"><i class="zmdi zmdi-twitter"></i></a>
-                            <a href="#"><i class="zmdi zmdi-google-old"></i></a>
-                            <a href="#"><i class="zmdi zmdi-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!--End of Teachers Area-->
 
 {% endblock content %}

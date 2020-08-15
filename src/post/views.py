@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from django.core.paginator import Paginator
 from django.db.models import Q
 from .models import *
@@ -10,6 +10,7 @@ def post(request):
     paginator = Paginator(posts, 9)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
+
     context = {
         'posts': posts,
         'page_obj': page_obj
@@ -48,22 +49,66 @@ def post_detail(request, id, slug):
     post.comments = comments.count()
     post.views += 1
     post.save()
+
     return render(request, 'post/post_detail.html', context)
 
 
 def post_search(request):
-    posts_qs = Post.objects.all()
+    posts_qs = Post.objects.none()
+    posts_tags_qs = PostTag.objects.none()
+    list_post_id = []
+
     if request.method == 'GET':
         search_query = request.GET.get('search_query')
         if search_query != '' and search_query is not None:
-            posts_qs = posts_qs.filter(Q(title__icontains=search_query) |
-                                       Q(description__icontains=search_query)).distinct().order_by('-created_at')
+            posts_tags_qs = PostTag.objects.filter(
+                tag_id__name__icontains=search_query)
+
+            if posts_tags_qs.exists():
+                for post_tag in posts_tags_qs:
+                    post = Post.objects.filter(id=post_tag.post_id.id).get()
+                    list_post_id.append(post.id)
+
+            posts_qs = Post.objects.filter(Q(title__icontains=search_query) |
+                                           Q(id__in=list_post_id) |
+                                           Q(description__icontains=search_query)).distinct().order_by('-created_at')
     paginator = Paginator(posts_qs, 9)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
+
     context = {
         'posts_qs': posts_qs,
+        'page_obj': page_obj,
         'search_query': search_query,
-        'page_obj': page_obj
     }
-    return render(request, "post/post_search.html", context)
+
+    return render(request, "post/post.html", context)
+
+
+def post_tag_search(request, tag):
+    posts_qs = Post.objects.none()
+    posts_tags_qs = PostTag.objects.none()
+    list_post_id = []
+
+    posts_tags_qs = PostTag.objects.filter(
+        tag_id__name__icontains=tag)
+
+    if posts_tags_qs.exists():
+        for post_tag in posts_tags_qs:
+            post = Post.objects.filter(id=post_tag.post_id.id).get()
+            list_post_id.append(post.id)
+
+    posts_qs = Post.objects.filter(
+        Q(id__in=list_post_id)).distinct().order_by('-created_at')
+
+    paginator = Paginator(posts_qs, 9)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    context = {
+        'posts_qs': posts_qs,
+        'page_obj': page_obj,
+        'tag': tag,
+    }
+
+    return render(request, "post/post.html", context)

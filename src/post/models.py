@@ -17,6 +17,9 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('post:post_tag_search', kwargs={'tag': self.name})
+
 
 @receiver(pre_save, sender=Tag)
 def slug_pre_save_receiver(sender, instance, *args, **kwargs):
@@ -62,6 +65,9 @@ class PostTag(models.Model):
 
     def __str__(self):
         return self.tag_id.name
+
+    def get_absolute_url(self):
+        return reverse('post:post_tag_search', kwargs={'tag': self.tag_id.name})
 
 
 class Comment(models.Model):

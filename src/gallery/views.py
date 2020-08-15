@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.core.paginator import Paginator
 
 from .models import *
 
@@ -18,15 +19,23 @@ def gallery(request):
 
 def picture_gallery(request):
     pictures = Picture.objects.all().order_by('-timestamp')
+    paginator = Paginator(pictures, 9)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     context = {
         'pictures': pictures,
+        'page_obj': page_obj
     }
     return render(request, 'gallery/picture_gallery.html', context)
 
 
 def video_gallery(request):
     videos = Video.objects.all().order_by('-timestamp')
+    paginator = Paginator(videos, 9)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     context = {
         'videos': videos,
+        'page_obj': page_obj
     }
     return render(request, 'gallery/video_gallery.html', context)
