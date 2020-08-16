@@ -152,12 +152,9 @@
                     <div class="single-sidebar-widget">
                         <h4 class="title">Search by Tags</h4>
                         <ul class="tags">
-                            <li><a href="#">Photoshop</a></li>
-                            <li><a href="#">Design</a></li>
-                            <li><a href="#">Tutorial</a></li>
-                            <li><a href="#">Courses</a></li>
-                            <li><a href="#">Premium</a></li>
-                            <li><a href="#">Designtuto</a></li>
+                        {% for tag in tag_list %}
+                            <li><a href="{{ tag.get_absolute_url }}">{{ tag | capfirst}}</a></li>
+                        {% endfor %}
                         </ul>
                     </div>
                 </div>
