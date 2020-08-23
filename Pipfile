@@ -18,6 +18,7 @@ mailchimp = "*"
 django-crispy-forms = "*"
 django-heroku = "*"
 django-environ = "*"
+whitenoise = "*"
 
 [requires]
 python_version = "3.8"
