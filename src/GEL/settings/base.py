@@ -11,24 +11,16 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import environ
+
+env = environ.Env()
+
+# reading .env file
+environ.Env.read_env(env.str('./', '.env'))
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'z42e1(+@z49^8&f636wr4s+s8rr*_$)6)77kvvrdg+xmf@11kx'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-# DEBUG can be True/False or 1/0
-DEBUG = int(os.environ.get('DEBUG', default=1))
-
-ALLOWED_HOSTS = []
-
+BASE_DIR = os.path.dirname(os.path.dirname(
+    os.path.dirname(os.path.abspath(__file__))))
 
 # Application definition
 
@@ -90,11 +82,11 @@ WSGI_APPLICATION = 'GEL.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'GreenEduLink_DB',
-        'USER': 'postgres',
-        'PASSWORD': 'asusfx505',
-        'HOST': 'localhost',
-        'PORT': '8750'
+        'NAME': env('POSTGRESQL_NAME'),
+        'USER': env('POSTGRESQL_USER'),
+        'PASSWORD': env('POSTGRESQL_PASSWORD'),
+        'HOST': env('POSTGRESQL_HOST'),
+        'PORT': env('POSTGRESQL_PORT'),
     }
 }
 
@@ -150,10 +142,3 @@ AUTH_USER_MODEL = 'account.User'
 CKEDITOR_UPLOAD_PATH = 'ckupload/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'prj.ecom.pydj@gmail.com'
-EMAIL_HOST_PASSWORD = 'Python337Django22'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

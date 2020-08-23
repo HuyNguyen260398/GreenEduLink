@@ -1,0 +1,239 @@
+Watching for file changes with StatReloader
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Workspace\GreenEduLink\Backend\GreenEduLink\src\GEL\views.py", line 16, in home
+    return render(request, "home.html", context)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: home.html
+"GET / HTTP/1.1" 500 99693
+"GET /post HTTP/1.1" 301 0
+Internal Server Error: /post/
+Traceback (most recent call last):
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\template\loader_tags.py", line 127, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\template\loader_tags.py", line 124, in get_parent
+    return self.find_template(parent, context)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\template\loader_tags.py", line 103, in find_template
+    template, origin = context.template.engine.find_template(
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\template\engine.py", line 129, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: main.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Workspace\GreenEduLink\Backend\GreenEduLink\src\post\views.py", line 19, in post
+    return render(request, "post/post.html", context)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\template\backends\django.py", line 63, in render
+    reraise(exc, self.backend)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\template\backends\django.py", line 84, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: main.html
+"GET /post/ HTTP/1.1" 500 151020
+D:\Workspace\GreenEduLink\Backend\GreenEduLink\src\GEL\settings\__init__.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /post/
+Traceback (most recent call last):
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\template\loader_tags.py", line 127, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\template\loader_tags.py", line 124, in get_parent
+    return self.find_template(parent, context)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\template\loader_tags.py", line 103, in find_template
+    template, origin = context.template.engine.find_template(
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\template\engine.py", line 129, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: main.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Workspace\GreenEduLink\Backend\GreenEduLink\src\post\views.py", line 19, in post
+    return render(request, "post/post.html", context)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\template\backends\django.py", line 63, in render
+    reraise(exc, self.backend)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\template\backends\django.py", line 84, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: main.html
+"GET /post/ HTTP/1.1" 500 151157
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Workspace\GreenEduLink\Backend\GreenEduLink\src\GEL\views.py", line 16, in home
+    return render(request, "home.html", context)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: home.html
+"GET / HTTP/1.1" 500 98321
+Watching for file changes with StatReloader
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Workspace\GreenEduLink\Backend\GreenEduLink\src\GEL\views.py", line 16, in home
+    return render(request, "home.html", context)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: home.html
+"GET / HTTP/1.1" 500 98467
+D:\Workspace\GreenEduLink\Backend\GreenEduLink\src\GEL\settings\base.py changed, reloading.
+Watching for file changes with StatReloader
+D:\Workspace\GreenEduLink\Backend\GreenEduLink\src\GEL\settings\base.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Workspace\GreenEduLink\Backend\GreenEduLink\src\GEL\views.py", line 16, in home
+    return render(request, "home.html", context)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Huy\.virtualenvs\GreenEduLink-DUIZ92FC\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: home.html
+"GET / HTTP/1.1" 500 98458
+D:\Workspace\GreenEduLink\Backend\GreenEduLink\src\GEL\settings\base.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 42370
+"GET /static/css/bootstrap.min.css HTTP/1.1" 200 121260
+"GET /static/css/color-switcher.css HTTP/1.1" 200 2743
+"GET /static/css/font-awesome.min.css HTTP/1.1" 200 27466
+"GET /static/css/owl.carousel.css HTTP/1.1" 200 4614
+"GET /static/css/meanmenu.min.css HTTP/1.1" 200 2869
+"GET /static/css/jquery-ui.css HTTP/1.1" 200 36437
+"GET /static/css/animate.css HTTP/1.1" 200 74096
+"GET /static/lib/nivo-slider/css/nivo-slider.css HTTP/1.1" 200 8392
+"GET /static/css/animated-headlines.css HTTP/1.1" 200 29139
+"GET /static/lib/nivo-slider/css/preview.css HTTP/1.1" 200 2705
+"GET /static/css/material-design-iconic-font.css HTTP/1.1" 200 90470
+"GET /static/css/material-design-iconic-font.min.css HTTP/1.1" 200 70815
+"GET /static/css/slick.css HTTP/1.1" 200 1307
+"GET /static/css/jquery.mb.YTPlayer.css HTTP/1.1" 200 13092
+"GET /static/css/color.css HTTP/1.1" 200 4451
+"GET /static/css/responsive.css HTTP/1.1" 200 17667
+"GET /static/js/vendor/modernizr-2.8.3.min.js HTTP/1.1" 200 15514
+"GET /static/style.css HTTP/1.1" 200 86372
+"GET /static/fonts/montserrat-light-webfont.woff2 HTTP/1.1" 200 18740
+"GET /static/js/wow.min.js HTTP/1.1" 200 8426
+"GET /static/js/jquery.meanmenu.js HTTP/1.1" 200 11752
+"GET /static/lib/nivo-slider/home.js HTTP/1.1" 200 562
+"GET /static/lib/nivo-slider/js/jquery.nivo.slider.js HTTP/1.1" 200 29774
+"GET /static/js/bootstrap.min.js HTTP/1.1" 200 36868
+"GET /static/js/vendor/jquery-1.12.4.min.js HTTP/1.1" 200 97163
+"GET /static/js/jquery.scrollUp.min.js HTTP/1.1" 200 2035
+"GET /static/js/animated-headlines.js HTTP/1.1" 200 5685
+"GET /static/js/jquery.counterup.min.js HTTP/1.1" 200 1074
+"GET /static/js/owl.carousel.min.js HTTP/1.1" 200 80843
+"GET /static/js/waypoints.min.js HTTP/1.1" 200 8051
+"GET /static/js/slick.min.js HTTP/1.1" 200 40461
+"GET /static/js/textilate.js HTTP/1.1" 200 8189
+"GET /static/js/lettering.js HTTP/1.1" 200 1850
+"GET /static/js/ajax-mail.js HTTP/1.1" 200 1249
+"GET /static/js/jquery.mb.YTPlayer.js HTTP/1.1" 200 82399
+"GET /static/js/jquery.ajaxchimp.min.js HTTP/1.1" 200 2455
+"GET /static/js/plugins.js HTTP/1.1" 200 760
+"GET /static/js/styleswitch.js HTTP/1.1" 200 1332
+"GET /static/js/main.js HTTP/1.1" 200 4478
+"GET /static/img/logo/logo_gel.png HTTP/1.1" 200 12313
+"GET /media/post_thumbnails/Niagara_College.jpg HTTP/1.1" 200 36137
+"GET /media/post_thumbnails/US_Oversea_9_UA7gTtV.jpg HTTP/1.1" 200 83307
+"GET /media/post_thumbnails/canada2.jpg HTTP/1.1" 200 84654
+"GET /static/img/banner/home_banner_2.png HTTP/1.1" 200 604503
+"GET /static/img/banner/home_banner.png HTTP/1.1" 200 1047200
+"GET /media/post_thumbnails/New_Brunswick_Community_College_1_5tHsXWk.jpg HTTP/1.1" 200 38851
+"GET /media/post_thumbnails/New_Brunswick_Community_College_1_5AwEx2n.jpg HTTP/1.1" 200 38851
+"GET /static/img/teacher/anthonynguyen2.jpg HTTP/1.1" 200 110449
+"GET /static/fonts/Material-Design-Iconic-Font.woff2?v=2.2.0 HTTP/1.1" 200 38384
+"GET /static/fonts/montserrat-regular-webfont.woff2 HTTP/1.1" 200 18616
+"GET /static/fonts/fontawesome-webfont.woff2?v=4.5.0 HTTP/1.1" 200 66624
+"GET /static/fonts/montserrat-semibold-webfont.woff2 HTTP/1.1" 200 18876
+"GET /static/img/icon/cap-dark.jpg HTTP/1.1" 200 2298
+"GET /static/img/icon/cap-white.jpg HTTP/1.1" 200 2303
+"GET /static/img/banner/home_banner_6.jpg HTTP/1.1" 200 185278
+"GET /static/switcher/color-two.css HTTP/1.1" 200 4406
+"GET /static/switcher/color-one.css HTTP/1.1" 200 4532
+"GET /static/switcher/color-four.css HTTP/1.1" 200 4406
+"GET /static/switcher/color-three.css HTTP/1.1" 200 4402
+"GET /static/img/banner/home_banner_5.png HTTP/1.1" 200 1532468
+"GET /static/switcher/color-five.css HTTP/1.1" 200 4407
+"GET /static/switcher/color-six.css HTTP/1.1" 200 4406
+"GET /static/switcher/color-seven.css HTTP/1.1" 200 4396
+"GET /static/switcher/color-eight.css HTTP/1.1" 200 4404
+"GET /static/switcher/color-nine.css HTTP/1.1" 200 4403
+"GET /static/switcher/color-ten.css HTTP/1.1" 200 4406
+"GET /static/switcher/pattren1.css HTTP/1.1" 200 136
+"GET /static/switcher/pattren2.css HTTP/1.1" 200 111
+"GET /static/switcher/pattren3.css HTTP/1.1" 200 136
+"GET /static/switcher/pattren4.css HTTP/1.1" 200 136
+"GET /static/switcher/pattren5.css HTTP/1.1" 200 136
+"GET /static/switcher/background1.css HTTP/1.1" 200 213
+"GET /static/switcher/background2.css HTTP/1.1" 200 213
+"GET /static/switcher/background3.css HTTP/1.1" 200 213
+"GET /static/switcher/background4.css HTTP/1.1" 200 213
+"GET /static/switcher/background5.css HTTP/1.1" 200 213
+"GET /media/post_thumbnails/Screenshot_47.png HTTP/1.1" 200 4052582
+"GET /static/img/logo/title_bar_logo.png HTTP/1.1" 200 7676
+"GET /founder_info/ HTTP/1.1" 200 35699
+"GET /static/img/banner/banner.jpg HTTP/1.1" 200 291258
+"GET / HTTP/1.1" 200 42370

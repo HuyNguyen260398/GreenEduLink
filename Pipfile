@@ -16,6 +16,8 @@ beautifulsoup4 = "*"
 requests = "*"
 mailchimp = "*"
 django-crispy-forms = "*"
+django-heroku = "*"
+django-environ = "*"
 
 [requires]
 python_version = "3.8"
