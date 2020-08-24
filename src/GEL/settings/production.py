@@ -21,7 +21,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 #     'redis': env.cache('REDIS_URL')
 # }
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['green-edu-link.herokuapp.com']
 
 DATABASES['default'] = dj_database_url.config(
     conn_max_age=600, ssl_require=True)
