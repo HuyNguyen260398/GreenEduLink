@@ -19,6 +19,8 @@ django-crispy-forms = "*"
 django-heroku = "*"
 django-environ = "*"
 whitenoise = "*"
+django-storages = "*"
+boto3 = "*"
 
 [requires]
 python_version = "3.8"
