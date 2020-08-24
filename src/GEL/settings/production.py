@@ -8,6 +8,9 @@ import environ
 # reading .env file
 # environ.Env.read_env(env.str('./', '.env'))
 
+BASE_DIR = os.path.dirname(os.path.dirname(
+    os.path.dirname(os.path.abspath(__file__))))
+
 # False if not in os.environ
 DEBUG = False
 
