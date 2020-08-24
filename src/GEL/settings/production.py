@@ -1,5 +1,6 @@
 import os
 import django_heroku
+import dj_database_url
 import environ
 
 # env = environ.Env()
@@ -21,6 +22,9 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # }
 
 ALLOWED_HOSTS = []
+
+DATABASES['default'] = dj_database_url.config(
+    conn_max_age=600, ssl_require=True)
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
