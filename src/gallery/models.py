@@ -29,7 +29,7 @@ class Picture(models.Model):
 @receiver(post_save, sender=Post)
 def post_post_save_receiver(sender, instance, created, *arg, **kwargs):
     if created:
-        soup = BSHTML(instance.content)
+        soup = BSHTML(instance.content, "html.parser")
         images = soup.findAll('img')
         for image in images:
             if 'http' not in image['src']:
