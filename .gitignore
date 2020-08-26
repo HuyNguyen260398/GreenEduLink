@@ -4,4 +4,6 @@
 *.pot
 *.pyc
 __pycache__/
+base.py
 local.py
+development.py
