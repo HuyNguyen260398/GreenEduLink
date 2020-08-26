@@ -18,7 +18,6 @@ mailchimp = "*"
 django-crispy-forms = "*"
 django-heroku = "*"
 django-environ = "*"
-whitenoise = "*"
 django-storages = "*"
 boto3 = "*"
 
