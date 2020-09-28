@@ -1,5 +1,7 @@
 {% extends 'main.html' %}
 
+{% load static %}
+
 {% block content %}
 
 <!--Breadcrumb Banner Area Start-->
@@ -28,7 +30,7 @@
             <div class="col-md-6 mb-30 col-sm-6">
                 <div class="gallery-img">
                     <a href="{% url 'gallery:picture_gallery' %}">
-                        <img src="{{ picture_gallery.image.url }}" alt="">
+                        <img src="{% static 'img/logo/US_Oversea.jpg' %}" alt="">
                         <div class="hover-effect">
                             <h2>Picture Gallery</h2>
                             <p>Lorem ipsum dolor sit amet consectetur adipiscing elit maecenas luctus nunc</p>
@@ -39,7 +41,7 @@
             <div class="col-md-6 mb-30 col-sm-6">
                 <div class="gallery-img">
                     <a href="{% url 'gallery:video_gallery' %}">
-                        <img src="{{ video_gallery.image.url }}" alt="">
+                        <img src="{% static 'img/logo/canada5.jpg' %}" alt="">
                         <div class="hover-effect">
                             <h2>Video Gallery</h2>
                             <p>Lorem ipsum dolor sit amet consectetur adipiscing elit maecenas luctus nunc</p>

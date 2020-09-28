@@ -24,18 +24,11 @@
 <!--Gallery Area Start-->
 <div class="gallery-area pt-110 pb-130">
     <div class="container">
+
+    {% if pictures %}
+
         <div class="row">
-
             {% for picture in page_obj %}
-
-            {% comment %} <div class="col-md-4 mb-30 col-sm-6">
-                <div class="gallery-img">
-                    <a href="{{ picture.image.url }}" data-toggle="lightbox" data-gallery="example-gallery">
-                        <img src="{{ picture.image.url }}" class="img-fluid" alt="" width="300" height="211">
-                    </a>
-                </div>
-            </div> {% endcomment %}
-
             <!-- Grid column -->
             <div class="col-md-4 mb-30 col-sm-6">
                 <!--Modal: Name-->
@@ -69,9 +62,7 @@
                 </div>
             </div>
             <!-- Grid column -->
-
             {% endfor %}
-
         </div>
 
         <div class="row">
@@ -101,6 +92,18 @@
                 </div>
             </div>
         </div>
+
+    {% else %}
+
+        <div class="row">
+            <div class="col-md-12 mb-30 col-sm-12" style="text-align:center">
+                <h2>No pictures have been added to the gallery</h2>
+                </br>
+                <h3>Please comback later</h3>
+            </div>
+        </div>
+
+    {% endif %}
 
     </div>
 </div>

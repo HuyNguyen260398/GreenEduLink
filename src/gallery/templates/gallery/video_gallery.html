@@ -24,6 +24,9 @@
 <!--Gallery Area Start-->
 <div class="gallery-area pt-110 pb-130">
     <div class="container">
+
+    {% if videos %}
+
         <div class="row">
 
             {% for video in page_obj %}
@@ -59,6 +62,18 @@
                 </div>
             </div>
         </div>
+
+    {% else %}
+
+        <div class="row">
+            <div class="col-md-12 mb-30 col-sm-12" style="text-align:center">
+                <h2>No videos have been added to the gallery</h2>
+                </br>
+                <h3>Please comback later</h3>
+            </div>
+        </div>
+
+    {% endif %}
 
     </div>
 </div>
